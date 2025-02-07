@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
     ] ++ map (file: global_utils.system_path + file) [
       /sh.nix
+      /networking/network.nix
     ];
 
   boot.loader = {
@@ -28,24 +29,6 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
-
-  # Configure network proxy if necessary
-  networking.proxy.default = "http://127.0.0.1:7897";
-
-  systemd.services.nix-daemon = {
-    environment = {
-      http_proxy = "http://127.0.0.1:7897";
-      https_proxy = "http://127.0.0.1:7897";
-      all_proxy = lib.mkForce "socks5://127.0.0.1:7897";
-    };
-  };
-
-  networking.proxy.noProxy = "mirror.sjtu.edu.cn,mirrors.ustc.edu.cn,mirrors.tuna.tsinghua.edu.cn";
-
-  networking = {
-    hostName = user_settings.hostname;
-    networkmanager.enable = true;
-  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -107,13 +90,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.clash-verge.enable = true;
-  programs.clash-verge.package = pkgs.clash-verge-rev;
 
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    clash-verge-rev
     qq
     git
     google-chrome

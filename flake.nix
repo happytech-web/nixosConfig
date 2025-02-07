@@ -14,12 +14,12 @@
     let
       system_settings = {
         system = "x86_64-linux";
+        hostname = "happyMachine";
         profile = "personal-dualboot";
       };
 
       user_settings = {
         username = "happytech";
-        hostname = "happyMachine";
         name = "HappyTech";
         email = "happytech.web@gmail.com";
       };
@@ -30,7 +30,7 @@
         system_path = root_path + /system;
       };
     in {
-      nixosConfigurations.${user_settings.hostname} = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.${system_settings.hostname} = nixpkgs.lib.nixosSystem {
         system = system_settings.system;
         modules = [
           (./profiles + "/${system_settings.profile}/configuration.nix")
