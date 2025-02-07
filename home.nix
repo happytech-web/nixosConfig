@@ -6,6 +6,7 @@
     ./user/shell/sh.nix # shell configuration
     ./user/shell/cli_apps.nix
     ./user/apps/git/git.nix
+    ./user/network/ssh.nix
   ];
   home.username = user_settings.username;
   home.homeDirectory = "/home/" + user_settings.username;
