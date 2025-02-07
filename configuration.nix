@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, user_settings, system_settings,... }:
 
 {
   imports =
@@ -7,9 +7,6 @@
       ./system/sh.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
   boot.loader = {
     grub = {
       enable = true;
@@ -45,7 +42,7 @@
   networking.proxy.noProxy = "mirror.sjtu.edu.cn,mirrors.ustc.edu.cn,mirrors.tuna.tsinghua.edu.cn";
 
   networking = {
-    hostName = "nixos";
+    hostName = user_settings.hostname;
     networkmanager.enable = true;
   };
 
@@ -90,9 +87,9 @@
   # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.happytech = {
+  users.users.${user_settings.username} = {
     isNormalUser = true;
-    description = "happytech";
+    description = "${user_settings.username}";
     extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
   };
 

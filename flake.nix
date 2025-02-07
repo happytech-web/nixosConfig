@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake";
+  description = "Happytech's flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
@@ -18,23 +18,24 @@
 
       user_settings = {
         username = "happytech";
-        hostname = "nixos";
-        profile = "personal";
+        hostname = "happyMachine";
+        profile = "personal-dualboot";
         name = "HappyTech";
         email = "happytech.web@gmail.com";
       };
     in {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.${user_settings.hostname} = nixpkgs.lib.nixosSystem {
         system = system_settings.system;
         modules = [
           ./configuration.nix
         ];
         specialArgs = {
           inherit system_settings;
+          inherit user_settings;
         };
       };
       homeConfigurations = {
-        happytech = home-manager.lib.homeManagerConfiguration {
+        ${user_settings.username} = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system_settings.system};
           modules = [
             ./home.nix
