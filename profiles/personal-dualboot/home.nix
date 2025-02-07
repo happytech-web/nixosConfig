@@ -6,6 +6,7 @@
     /shell/sh.nix # shell configuration
     /shell/cli_apps.nix
     /apps/git/git.nix
+    /apps/vim/vim.nix
     /network/ssh.nix
   ];
 
