@@ -24,8 +24,10 @@
         email = "happytech.web@gmail.com";
       };
 
-      global_utils = {
+      global_utils = rec {
         root_path = ./.;
+        user_path = root_path + /user;
+        system_path = root_path + /system;
       };
     in {
       nixosConfigurations.${user_settings.hostname} = nixpkgs.lib.nixosSystem {

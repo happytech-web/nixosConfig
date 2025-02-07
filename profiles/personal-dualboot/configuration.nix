@@ -4,7 +4,8 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      (global_utils.root_path + /system/sh.nix)
+    ] ++ map (file: global_utils.system_path + file) [
+      /sh.nix
     ];
 
   boot.loader = {

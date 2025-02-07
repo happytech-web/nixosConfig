@@ -2,11 +2,11 @@
 
 {
 
-  imports = [
-    (global_utils.root_path + /user/shell/sh.nix) # shell configuration
-    (global_utils.root_path + /user/shell/cli_apps.nix)
-    (global_utils.root_path + /user/apps/git/git.nix)
-    (global_utils.root_path + /user/network/ssh.nix)
+  imports = map (file: global_utils.user_path + file) [
+    /shell/sh.nix # shell configuration
+    /shell/cli_apps.nix
+    /apps/git/git.nix
+    /network/ssh.nix
   ];
 
   home.username = user_settings.username;
