@@ -12,6 +12,9 @@
       " 插入模式用 jk 退出到 Normal 模式
       inoremap jk <Esc>
       
+      " 行高亮  
+      set cursorline
+
       " 更快的 Esc 响应（单位：毫秒）
       set timeoutlen=1000
       set ttimeoutlen=0
