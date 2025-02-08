@@ -6,5 +6,6 @@
     rnr
     pandoc
     tlrc
+    tree
   ];
 }

@@ -10,6 +10,7 @@
       /input/fcitx.nix
       /hardware/bluetooth.nix
       /hardware/opengl.nix
+      /media/pipewire.nix
       /wm/kde.nix
     ];
 
@@ -40,10 +41,6 @@
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "ctrl:swapcaps";
 
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
 
   users.users.${user_settings.username} = {
     isNormalUser = true;
