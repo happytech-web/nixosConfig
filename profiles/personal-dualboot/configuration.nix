@@ -9,6 +9,7 @@
       /networking/network.nix
       /input/fcitx.nix
       /hardware/bluetooth.nix
+      /hardware/opengl.nix
     ];
 
   # dual system boot config
