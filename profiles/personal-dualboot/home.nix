@@ -10,6 +10,7 @@
     /network/ssh.nix
     /language/cc/cc.nix
     /language/python/python.nix
+    /language/java/java.nix
   ];
 
   home.username = user_settings.username;
