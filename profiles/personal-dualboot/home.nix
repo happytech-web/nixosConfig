@@ -9,6 +9,7 @@
     /apps/vim/vim.nix
     /network/ssh.nix
     /language/cc/cc.nix
+    /language/python/python.nix
   ];
 
   home.username = user_settings.username;
