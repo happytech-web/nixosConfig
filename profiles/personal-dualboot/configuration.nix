@@ -10,6 +10,7 @@
       
       /settings/media/pipewire.nix
       /settings/input/fcitx.nix
+      /settings/dbus/dbus.nix
 
       /networking/network.nix
 
