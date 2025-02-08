@@ -5,6 +5,8 @@
     [ 
       ./hardware-configuration.nix
     ] ++ map (file: global_utils.system_path + file) [
+      /boot/dualboot.nix
+
       /hardware/bluetooth.nix
       /hardware/opengl.nix
       
@@ -18,24 +20,6 @@
       /sh.nix
     ];
 
-  # dual system boot config
-  boot.loader = {
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      extraEntries = ''
-        menuentry "Windows" {
-          search --file --no-floppy --set=root /EFI/Microsoft/Boot/bootmgfw.efi
-          chainloader (''${root})/EFI/Microsoft/Boot/bootmgfw.efi
-        }
-      '';
-    };
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
-  };
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
@@ -54,7 +38,6 @@
 
   # nix flake related
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
