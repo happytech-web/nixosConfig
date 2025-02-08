@@ -8,6 +8,7 @@
       /sh.nix
       /networking/network.nix
       /input/fcitx.nix
+      /hardware/bluetooth.nix
     ];
 
   # dual system boot config
