@@ -5,13 +5,16 @@
     [ 
       ./hardware-configuration.nix
     ] ++ map (file: global_utils.system_path + file) [
-      /sh.nix
-      /networking/network.nix
-      /input/fcitx.nix
       /hardware/bluetooth.nix
       /hardware/opengl.nix
-      /media/pipewire.nix
+      
+      /settings/media/pipewire.nix
+      /settings/input/fcitx.nix
+
+      /networking/network.nix
+
       /wm/kde.nix
+      /sh.nix
     ];
 
   # dual system boot config
