@@ -16,7 +16,7 @@
 
       /networking/network.nix
 
-      /wm/kde.nix
+      /wm/plasma.nix
       /sh.nix
     ];
 
