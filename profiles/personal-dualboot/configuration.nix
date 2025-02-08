@@ -25,10 +25,6 @@
   time.timeZone = "Asia/Shanghai";
 
 
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "us";
-  services.xserver.xkb.options = "ctrl:swapcaps";
-
 
   users.users.${user_settings.username} = {
     isNormalUser = true;
