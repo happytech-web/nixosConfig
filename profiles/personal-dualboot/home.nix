@@ -8,6 +8,7 @@
     /apps/git/git.nix
     /apps/vim/vim.nix
     /network/ssh.nix
+    /language/cc/cc.nix
   ];
 
   home.username = user_settings.username;
