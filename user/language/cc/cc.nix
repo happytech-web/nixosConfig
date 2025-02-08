@@ -1,10 +1,10 @@
-{ pkg, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     gcc
     gnumake
     cmake
     clang-tools
-    compiledb
+    python312Packages.compiledb
   ];
 }
