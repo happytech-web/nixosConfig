@@ -7,6 +7,7 @@
     /shell/cli_apps.nix
     /apps/git/git.nix
     /apps/vim/vim.nix
+    /apps/terminal/alacritty.nix
     /network/ssh.nix
     /language/cc/cc.nix
     /language/python/python.nix
