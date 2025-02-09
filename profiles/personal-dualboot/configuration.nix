@@ -42,11 +42,18 @@
     qq
     git
     google-chrome
-    emacs
+    # emacs
+    emacs29-pgtk
     fira-code
     lxgw-wenkai
     nil
   ];
+
+  fonts.packages = with pkgs; [
+    fira-code
+    lxgw-wenkai
+  ];
+
 
   system.stateVersion = "24.11"; # Did you read the comment?
 }

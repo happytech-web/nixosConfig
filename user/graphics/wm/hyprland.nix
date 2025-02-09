@@ -9,6 +9,18 @@
     /graphics/app-launcher/wofi.nix
   ];
 
+  # not work
+  nixpkgs.config.allowUnfree = true;
+  programs.chromium = {
+    enable = true;
+    package = pkgs.google-chrome;
+    commandLineArgs = [
+      "--ozone-platform=wayland"
+      "--enable-wayland-ime"
+      "--ozone-platform-hint=auto"
+    ];
+  };
+
   # hypridle
   home.packages = with pkgs; [
     hypridle
@@ -20,6 +32,18 @@
     enable = true;
     systemd.enableXdgAutostart = true;
     settings = {
+      env = [
+        "XMODIFIERS, @im=fcitx"
+        "QT_IM_MODULE, fcitx"
+        "SDL_IM_MODULE, fcitx"
+        "GDK_BACKEND, wayland,x11"
+        "QT_QPA_PLATFORM, wayland;xcb"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
+        "QT_AUTO_SCREEN_SCALE-FACTOR, 1"
+        "CLUTTER_BACKEND, wayland"
+        "ADW_DISABLE_PROTAL, 1"
+        "XCURSOR_SIZE, 24"
+      ];
     # **基础设置**
       monitor = ",preferred,auto,auto";
       general = {

@@ -5,6 +5,7 @@
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
+    FCITX5_ENABLE_WAYLAND = "true";
   };
 
   i18n = {

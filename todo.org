@@ -1,0 +1,14 @@
+#+title: some todos
+#+author: happytech
+
+* wayland related
+为google-chrome和qq添加启动参数来保证在wayland能正常跑，并且能够正常使用输入法
+=--enable-wayland-ime --ozone-platform=wayland --ozone-platform-hint=auto=
+
+* 加一个剪贴版
+没有剪贴版啊喂
+
+* 配置hyprland
+研究keybindings和其他东西
+
+* emacs daemon研究一下

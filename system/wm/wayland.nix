@@ -5,6 +5,12 @@
     /sddm/sddm.nix
   ];
 
+  environment.variables = {
+    # NIXOS_OZONE_WL = "1";
+  };
+
+
+
   # configure xwayland
   services.xserver.enable = true;
   # Configure keymap in X11
