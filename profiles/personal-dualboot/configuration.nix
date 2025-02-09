@@ -16,7 +16,7 @@
 
       /networking/network.nix
 
-      /wm/plasma.nix
+      /wm/hyprland.nix
       /sh.nix
     ];
 

@@ -13,6 +13,8 @@
     /language/cc/cc.nix
     /language/python/python.nix
     /language/java/java.nix
+
+    /graphics/wm/hyprland.nix
   ];
 
   home.username = user_settings.username;
