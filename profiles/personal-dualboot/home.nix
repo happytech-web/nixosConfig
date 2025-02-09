@@ -13,8 +13,6 @@
     /language/cc/cc.nix
     /language/python/python.nix
     /language/java/java.nix
-
-    /graphics/network-manager/nm-applet.nix
   ];
 
   home.username = user_settings.username;
