@@ -14,7 +14,7 @@
     /language/python/python.nix
     /language/java/java.nix
 
-    /graphics/wm/hyprland.nix
+    /graphics/wm/hyprland/hyprland.nix
   ];
 
   home.username = user_settings.username;
