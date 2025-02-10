@@ -42,7 +42,7 @@
 
       general = {
         layout = "master";
-        gaps_in = 7;
+        gaps_in = 5;
         gaps_out = 7;
         border_size = 5;
         "col.active_border" = "rgb(89b4fa)";
@@ -55,7 +55,7 @@
         blur = {
           enabled = true;
           size = 5;
-          passes = 2;
+          passes = 1;
           contrast = 1.17;
           xray = true;
           popups = true;
@@ -86,10 +86,28 @@
       };
       
       input = {
+        # key
         kb_layout = "us";
         kb_options = "ctrl:swapcaps";
+        numlock_by_default = true;
+        repeat_rate = 45;
+        repeat_delay = 400;
+
+        # mouse
         follow_mouse = 1;
         sensitivity = 0;
+        natural_scroll = true;
+
+        # touch pad
+        touchpad = {
+          disable_while_typing = true;
+          natural_scroll = true;
+          scroll_factor = 0.8;
+        };
+      };
+
+      gestures = {
+        workspace_swipe = true;
       };
       
       # **最小化 keybinding，防止进不了桌面**
