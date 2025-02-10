@@ -28,6 +28,7 @@
         root_path = ./.;
         user_path = root_path + /user;
         system_path = root_path + /system;
+        home_path = /home + "/" + user_settings.username;
       };
     in {
       nixosConfigurations.${system_settings.hostname} = nixpkgs.lib.nixosSystem {
