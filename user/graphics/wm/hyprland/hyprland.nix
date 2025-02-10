@@ -7,26 +7,15 @@
     /graphics/lock/hyprlock.nix
     /graphics/waybar/waybar.nix
     /graphics/app-launcher/wofi.nix
-  ];
 
-  # not work
-  nixpkgs.config.allowUnfree = true;
-  programs.chromium = {
-    enable = true;
-    package = pkgs.google-chrome;
-    commandLineArgs = [
-      "--ozone-platform=wayland"
-      "--enable-wayland-ime"
-      "--ozone-platform-hint=auto"
-    ];
-  };
+    ./hyprpaper.nix
+  ];
 
   # hypridle
   home.packages = with pkgs; [
     hypridle
   ];
 
-  services.hypridle.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -44,15 +33,54 @@
         "ADW_DISABLE_PROTAL, 1"
         "XCURSOR_SIZE, 24"
       ];
-    # **基础设置**
+      
+      # configure the monitor
       monitor = ",preferred,auto,auto";
+
       general = {
-        gaps_in = 5;
-        gaps_out = 10;
-      border_size = 2;
-      "col.active_border" = "rgb(89b4fa)";
-      "col.inactive_border" = "rgb(45475a)";
-    };
+        layout = "master";
+        gaps_in = 7;
+        gaps_out = 7;
+        border_size = 5;
+        "col.active_border" = "rgb(89b4fa)";
+        "col.inactive_border" = "rgb(45475a)";
+        resize_on_border = true;
+      };
+
+      decoration = {
+        rounding = 8;
+        blur = {
+          enabled = true;
+          size = 5;
+          passes = 2;
+          contrast = 1.17;
+          xray = true;
+          popups = true;
+        };
+      };
+
+      bezier = [
+        "wind, 0.05, 0.9, 0.1, 1.05"
+        "winIn, 0.1, 1.1, 0.1, 1.0"
+        "winOut, 0.3, -0.3, 0, 1"
+        "liner, 1, 1, 1, 1"
+        "linear, 0.0, 0.0, 1.0, 1.0"
+      ];
+
+      animations =  {
+           enabled = true;
+           animation = [
+             "windowsIn, 1, 6, winIn, popin"
+             "windowsOut, 1, 5, winOut, popin"
+             "windowsMove, 1, 5, wind, slide"
+             "border, 1, 10, default"
+             "borderangle, 1, 100, linear, loop"
+             "fade, 1, 10, default"
+             "workspaces, 1, 5, wind"
+             "windows, 1, 6, wind, slide"
+             "specialWorkspace, 1, 6, default, slidefadevert -50%"
+           ];
+      };
       
       input = {
         kb_layout = "us";
@@ -65,7 +93,7 @@
       bind = [
         "SUPER, Return, exec, alacritty" # 打开终端
         "SUPER, Q, killactive" # 关闭窗口
-        "SUPER, D, exec, wofi --show drun" # 启动应用
+        "SUPER, D, exec, wofi --show run" # 启动应用
         "SUPER, L, exec, hyprlock" # 锁屏
 
       # **默认工作区**
@@ -78,6 +106,7 @@
         "waybar"
         "dunst" # Wayland 通知服务
         "fcitx5" # 输入法
+        "systemctl --user enable -now hyprpaper.service" # hyprpaper
       ];
     };
   };
