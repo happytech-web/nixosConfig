@@ -1,6 +1,7 @@
 { pkgs, global_utils, ... }:
 {
   imports = map (file: global_utils.user_path + file) [
+    # user folder
     /graphics/network-manager/nm-applet.nix
     /graphics/blueman/blueman.nix
 
@@ -8,6 +9,8 @@
     /graphics/waybar/waybar.nix
     /graphics/app-launcher/wofi.nix
 
+  ] ++ [
+    # relative path
     ./hyprpaper.nix
   ];
 
