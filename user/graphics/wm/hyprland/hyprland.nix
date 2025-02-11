@@ -109,13 +109,22 @@
       gestures = {
         workspace_swipe = true;
       };
+
+      misc = {
+        disable_hyprland_logo = true;
+        mouse_move_enables_dpms = true;
+        enable_swallow = true;
+        swallow_regex = "(Alacritty)|(kitty)";
+      };
       
       # **最小化 keybinding，防止进不了桌面**
       bind = [
         "SUPER, Return, exec, alacritty" # 打开终端
         "SUPER, Q, killactive" # 关闭窗口
-        "SUPER, D, exec, wofi --show run" # 启动应用
+        # "SUPER, D, exec, wofi --show run" # 启动应用
+        "SUPER, D, exec, uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)" # 启动应用
         "SUPER, L, exec, hyprlock" # 锁屏
+
 
       # **默认工作区**
         "SUPER, 1, workspace, 1"
@@ -123,12 +132,15 @@
       ];
       
       # **默认应用**
-      exec-once = [
+      exec-once = map (service: "systemctl --user enable -now " + service + ".service") [
         "waybar"
         "dunst" # Wayland 通知服务
         "fcitx5" # 输入法
-        "systemctl --user enable -now hyprpaper.service" # hyprpaper
+        "hyprpaper" # hyprpaper
+        "hypridle"
+        "hyprlock"
       ];
+      
     };
   };
 
