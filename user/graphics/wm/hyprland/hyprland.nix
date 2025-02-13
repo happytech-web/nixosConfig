@@ -2,8 +2,9 @@
 {
   imports = map (file: global_utils.user_path + file) [
     # user folder
-    /graphics/network-manager/nm-applet.nix
-    /graphics/blueman/blueman.nix
+    /graphics/basic-utils/network-manager/nm-applet.nix
+    /graphics/basic-utils/blueman/blueman.nix
+    /graphics/basic-utils/clipboard/wl-clipboard.nix
 
     /graphics/lock/hyprlock.nix
     /graphics/waybar/waybar.nix
@@ -18,7 +19,6 @@
   home.packages = with pkgs; [
     hypridle
   ];
-
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -116,6 +116,14 @@
         enable_swallow = true;
         swallow_regex = "(Alacritty)|(kitty)";
       };
+
+      xwayland = {
+        force_zero_scaling = true;
+      };
+
+      cursor = {
+        inactive_timeout = 30;
+      };
       
       # **最小化 keybinding，防止进不了桌面**
       bind = [
@@ -123,7 +131,18 @@
         "SUPER, Q, killactive" # 关闭窗口
         # "SUPER, D, exec, wofi --show run" # 启动应用
         "SUPER, D, exec, uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)" # 启动应用
-        "SUPER, L, exec, hyprlock" # 锁屏
+        "SUPER, A, exec, emacsclient -c -a 'emacs'"
+        "SUPER, S, exec, google-chrome-stable --enable-wayland-ime --ozone-platform=wayland --ozone-platform-hint=auto"
+
+        # move
+        "SUPER,H,movefocus,l"
+        "SUPER,J,movefocus,d"
+        "SUPER,K,movefocus,u"
+        "SUPER,L,movefocus,r"
+        "SUPERCTRL,H,movewindow,l"
+        "SUPERCTRL,J,movewindow,d"
+        "SUPERCTRL,K,movewindow,u"
+        "SUPERCTRL,L,movewindow,r"
 
 
       # **默认工作区**
@@ -131,16 +150,15 @@
         "SUPER, 2, workspace, 2"
       ];
       
-      # **默认应用**
-      exec-once = map (service: "systemctl --user enable -now " + service + ".service") [
-        "waybar"
-        "dunst" # Wayland 通知服务
-        "fcitx5" # 输入法
-        "hyprpaper" # hyprpaper
+      exec-once = [
+        "dbus-update-activation-environment --systemd DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_SESSION_DESKTOP=Hyprland XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_TYPE=wayland"
+        "dunst"
+        "fcitx5"
+        "hyprpaper"
         "hypridle"
-        "hyprlock"
+        "waybar"
+        "emacs --daemon"
       ];
-      
     };
   };
 
