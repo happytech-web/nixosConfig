@@ -53,6 +53,7 @@
   fonts.packages = with pkgs; [
     fira-code
     lxgw-wenkai
+    fira-code-nerdfont
   ];
 
 
