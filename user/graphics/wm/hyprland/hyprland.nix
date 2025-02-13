@@ -5,6 +5,7 @@
     /graphics/basic-utils/network-manager/nm-applet.nix
     /graphics/basic-utils/blueman/blueman.nix
     /graphics/basic-utils/clipboard/wl-clipboard.nix
+    /graphics/basic-utils/clipboard/cliphist.nix
 
     /graphics/lock/hyprlock.nix
     /graphics/waybar/waybar.nix
@@ -22,7 +23,10 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enableXdgAutostart = true;
+    systemd = {
+      enable = true;
+      enableXdgAutostart = true;
+    };
     settings = {
       env = [
         "XMODIFIERS, @im=fcitx"
