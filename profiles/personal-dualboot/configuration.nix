@@ -30,7 +30,7 @@
   users.users.${user_settings.username} = {
     isNormalUser = true;
     description = "${user_settings.username}";
-    extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "networkmanager" "wheel" "input" ]; # Enable ‘sudo’ for the user.
   };
 
   # nix flake related
