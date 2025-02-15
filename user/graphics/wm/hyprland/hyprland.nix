@@ -180,6 +180,10 @@ in
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
+        # screen shot
+        ", PRINT, exec, hyprshot -m region" # a region
+        "SUPER, PRINT, exec, hyprshot -m window" # a window
+        "SUPERCTRL, PRINT, exec, hyprshot -m output" # monitor
       ];
       
       exec-once = [
