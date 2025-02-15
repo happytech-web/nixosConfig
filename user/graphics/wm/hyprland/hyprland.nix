@@ -1,6 +1,7 @@
 { pkgs, global_utils, ... }:
 let
   systemd_session = "hyprland-session.target";
+  start_workspace = 500000;
 in
 {
   imports = map (file: global_utils.user_path + file) [
@@ -27,9 +28,27 @@ in
   services.emacs.enable = true;
   services.emacs.package = pkgs.emacs29-pgtk;
 
+  home.pointerCursor = {
+    package = pkgs.bibata-cursors;
+    size = 24;
+    name = "Bibata-Modern-Classic";
+    gtk = {
+      enable = true;
+    };
+  };
+
+  gtk.cursorTheme = {
+    package = pkgs.bibata-cursors;
+    size = 24;
+    name = "Bibata-Modern-Classic";
+  };
+
   # hypridle
   home.packages = with pkgs; [
     hypridle
+    hyprnome
+    hyprcursor
+    bibata-cursors
   ];
 
   wayland.windowManager.hyprland = {
@@ -50,6 +69,9 @@ in
         "CLUTTER_BACKEND, wayland"
         "ADW_DISABLE_PROTAL, 1"
         "XCURSOR_SIZE, 24"
+
+        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
+        "HYPRCURSOR_SIZE,24"
       ];
       
       # configure the monitor
@@ -150,21 +172,49 @@ in
         "SUPER, S, exec, google-chrome-stable --enable-wayland-ime --ozone-platform=wayland --ozone-platform-hint=auto"
 
         # === window managing ===
+        # full screen
+        "SUPER,Backspace,fullscreen,1"
+        "SUPERCTRL,Backspace,fullscreen,0"
         # move
         "SUPER,H,movefocus,l"
         "SUPER,J,movefocus,d"
         "SUPER,K,movefocus,u"
         "SUPER,L,movefocus,r"
-        "SUPERCTRL,H,movewindow,l"
-        "SUPERCTRL,J,movewindow,d"
-        "SUPERCTRL,K,movewindow,u"
-        "SUPERCTRL,L,movewindow,r"
 
+        "SUPERSHIFT,H,movewindow,l"
+        "SUPERSHIFT,J,movewindow,d"
+        "SUPERSHIFT,K,movewindow,u"
+        "SUPERSHIFT,L,movewindow,r"
+        
+        "SUPER,T,togglefloating"
+        "SUPER,P,pin"
 
-        # **默认工作区**
-        "SUPER, 1, workspace, 1"
-        "SUPER, 2, workspace, 2"
+        # === workspace managing ===
 
+        # simply change
+        # "SUPER, 1, workspace, 1"
+        # "SUPER, 2, workspace, 2"
+        # "SUPER, 3, workspace, 3"
+        # "SUPER, 4, workspace, 4"
+        # "SUPER, 5, workspace, 5"
+        # "SUPER, 6, workspace, 6"
+        # "SUPER, 7, workspace, 7"
+        # "SUPER, 8, workspace, 8"
+
+        # hyprnome workspace changing
+        "SUPERCTRL, H, exec, hyprnome --previous"
+        "SUPERCTRL, L, exec, hyprnome"
+        "SUPERCTRLSHIFT, H, exec, hyprnome --previous --move"
+        "SUPERCTRLSHIFT, L, exec, hyprnome --move"
+
+        # "SUPERCTRL, 1, movetoworkspace, 1"
+        # "SUPERCTRL, 2, movetoworkspace, 2"
+        # "SUPERCTRL, 3, movetoworkspace, 3"
+        # "SUPERCTRL, 4, movetoworkspace, 4"
+        # "SUPERCTRL, 5, movetoworkspace, 5"
+        # "SUPERCTRL, 6, movetoworkspace, 6"
+        # "SUPERCTRL, 7, movetoworkspace, 7"
+        # "SUPERCTRL, 8, movetoworkspace, 8"
 
         # === basic utils ===
         
@@ -185,6 +235,11 @@ in
         "SUPER, PRINT, exec, hyprshot -m window" # a window
         "SUPERCTRL, PRINT, exec, hyprshot -m output" # monitor
       ];
+
+      bindm = [
+        "SUPER, mouse:272, movewindow" # 左键
+        "SUPER, mouse:273, resizewindow" # 右键
+      ];
       
       exec-once = [
         "dbus-update-activation-environment --systemd DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_SESSION_DESKTOP=Hyprland XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_TYPE=wayland"
@@ -193,7 +248,8 @@ in
         "hyprpaper"
         "hypridle"
         # "waybar"
-        "emacs --daemon"
+        # "emacs --daemon"
+        ("hyprctl dispatch workspace " + toString start_workspace)
       ];
     };
   };
