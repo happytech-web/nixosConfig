@@ -1,4 +1,7 @@
 { pkgs, global_utils, ... }:
+let
+  systemd_session = "hyprland-session.target";
+in
 {
   imports = map (file: global_utils.user_path + file) [
     # user folder
@@ -6,6 +9,7 @@
     /graphics/basic-utils/blueman/blueman.nix
     /graphics/basic-utils/clipboard/wl-clipboard.nix
     /graphics/basic-utils/clipboard/cliphist.nix
+    /graphics/basic-utils/brightness/brightnessctl.nix
 
     /graphics/lock/hyprlock.nix
     /graphics/waybar/waybar.nix
@@ -15,6 +19,12 @@
     # relative path
     ./hyprpaper.nix
   ];
+
+  
+  programs.waybar.systemd.target = systemd_session;
+  services.cliphist.systemdTarget = systemd_session;
+  services.emacs.enable = true;
+  services.emacs.package = pkgs.emacs29-pgtk;
 
   # hypridle
   home.packages = with pkgs; [
@@ -129,8 +139,8 @@
         inactive_timeout = 30;
       };
       
-      # **最小化 keybinding，防止进不了桌面**
       bind = [
+        # === app launching ===
         "SUPER, Return, exec, alacritty" # 打开终端
         "SUPER, Q, killactive" # 关闭窗口
         # "SUPER, D, exec, wofi --show run" # 启动应用
@@ -138,6 +148,7 @@
         "SUPER, A, exec, emacsclient -c -a 'emacs'"
         "SUPER, S, exec, google-chrome-stable --enable-wayland-ime --ozone-platform=wayland --ozone-platform-hint=auto"
 
+        # === window managing ===
         # move
         "SUPER,H,movefocus,l"
         "SUPER,J,movefocus,d"
@@ -149,9 +160,19 @@
         "SUPERCTRL,L,movewindow,r"
 
 
-      # **默认工作区**
+        # **默认工作区**
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
+
+
+        # === basic utils ===
+        
+        # clipboard manager
+        "SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        
+        # brightness
+        ", xf86monbrightnessup, exec, brightnessctl set 10%+"
+        ", xf86monbrightnessdown, exec, brightnessctl set 10%-"
       ];
       
       exec-once = [
@@ -160,7 +181,7 @@
         "fcitx5"
         "hyprpaper"
         "hypridle"
-        "waybar"
+        # "waybar"
         "emacs --daemon"
       ];
     };
