@@ -17,7 +17,8 @@ in
 
   ] ++ [
     # relative path
-    ./hyprpaper.nix
+    ./hypreco/hyprpaper.nix
+    ./hypreco/hyprshot.nix
   ];
 
   
