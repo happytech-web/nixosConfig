@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     alacritty
   ];
-  programs.alacritty = {
+  programs.alacritty = lib.mkDefault {
     enable = true;
     settings = {
       window = {

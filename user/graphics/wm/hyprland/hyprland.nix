@@ -28,7 +28,7 @@ in
   services.emacs.enable = true;
   services.emacs.package = pkgs.emacs29-pgtk;
 
-  home.pointerCursor = {
+  home.pointerCursor = lib.mkDefault {
     package = pkgs.bibata-cursors;
     size = 24;
     name = "Bibata-Modern-Classic";
@@ -81,7 +81,7 @@ in
         layout = "master";
         gaps_in = 5;
         gaps_out = 7;
-        border_size = 5;
+        border_size = 3;
         "col.active_border" = lib.mkDefault "rgb(89b4fa)";
         "col.inactive_border" = lib.mkDefault "rgb(45475a)";
         resize_on_border = true;
