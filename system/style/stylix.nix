@@ -42,16 +42,18 @@
       serif = sansSerif;
 
       emoji = {
-        name = "FiraCode Nerd Font Mono";
-        package = pkgs.fira-code-nerdfont;
+        name = "Noto Color Emoji";
+        package = pkgs.noto-fonts-emoji-blob-bin;
+        # name = "FiraCode Nerd Font Mono";
+        # package = pkgs.fira-code-nerdfont;
       };
     };
 
     opacity = {
       applications = 0.85;
-      desktop = 0.85;
+      desktop = 0.75;
       popups = 0.85;
-      terminal = 0.85;
+      terminal = 0.75;
     };
   };
 
