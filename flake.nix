@@ -8,9 +8,14 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix ={
+      url = "github:danth/stylix/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
     let
       system_settings = {
         system = "x86_64-linux";
@@ -37,6 +42,7 @@
           (./profiles + "/${system_settings.profile}/configuration.nix")
         ];
         specialArgs = {
+          inherit inputs;
           inherit system_settings;
           inherit user_settings;
           inherit global_utils;
