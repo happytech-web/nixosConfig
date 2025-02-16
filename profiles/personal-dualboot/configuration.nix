@@ -5,6 +5,10 @@
     [ 
       ./hardware-configuration.nix
     ] ++ map (file: global_utils.system_path + file) [
+      # theme
+      /style/stylix.nix
+
+      # core
       /boot/dualboot.nix
 
       /hardware/bluetooth.nix

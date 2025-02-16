@@ -1,12 +1,12 @@
 { pkgs, inputs, global_utils,... }:
 {
   imports = [
-    inputs.stylix.nixosModules.stylix
+    inputs.stylix.homeManagerModules.stylix
     (global_utils.root_path + /themes/moonlight)
   ];
-
-  environment.systemPackages = with pkgs; [
-    base16-schemes # color schemes
+  
+  home.packages = with pkgs; [
+    base16-schemes
   ];
 
   stylix = {
@@ -14,5 +14,4 @@
     autoEnable = true;
     # fonts: todo
   };
-
 }

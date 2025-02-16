@@ -55,6 +55,7 @@
           (./profiles + "/${system_settings.profile}/home.nix")
           ];
           extraSpecialArgs = {
+            inherit inputs;
             inherit user_settings;
             inherit global_utils;
           };

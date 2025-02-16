@@ -1,4 +1,4 @@
-{ pkgs, global_utils, ... }:
+{ lib, pkgs, global_utils, ... }:
 let
   systemd_session = "hyprland-session.target";
   start_workspace = 500000;
@@ -82,8 +82,8 @@ in
         gaps_in = 5;
         gaps_out = 7;
         border_size = 5;
-        "col.active_border" = "rgb(89b4fa)";
-        "col.inactive_border" = "rgb(45475a)";
+        "col.active_border" = lib.mkDefault "rgb(89b4fa)";
+        "col.inactive_border" = lib.mkDefault "rgb(45475a)";
         resize_on_border = true;
       };
 

@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib,... }:
 let
-  wallpaper_path = "/home/happytech/Pictures/tower.jpg";
+  wallpaper_path = "/home/happytech/.dotfiles/themes/moonlight/background.jpg";
 in
 {
 
@@ -12,7 +12,7 @@ in
   services.hypridle.enable = true;
   services.hyprpaper = {
     enable = true;
-    settings = {
+    settings = lib.mkDefault {
       ipc = "on";
       splash = true;
       splash_offset = 0.0;
