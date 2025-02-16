@@ -4,7 +4,8 @@
 
   imports = map (file: global_utils.user_path + file) [
     # theme
-    /style/sylix.nix
+    /style/stylix.nix
+
     # core
     /shell/sh.nix # shell configuration
     /shell/cli_apps.nix
