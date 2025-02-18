@@ -9,6 +9,8 @@
     base16-schemes
   ];
 
+  stylix.targets.waybar.enable = false;
+
   stylix = {
     enable = true; 
     autoEnable = true;

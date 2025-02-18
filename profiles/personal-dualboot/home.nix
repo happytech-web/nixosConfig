@@ -13,6 +13,9 @@
     /apps/vim/vim.nix
     /apps/terminal/kitty.nix
     /apps/terminal/alacritty.nix
+    /apps/tmp/apps.nix
+
+
     /network/ssh.nix
     /language/cc/cc.nix
     /language/python/python.nix

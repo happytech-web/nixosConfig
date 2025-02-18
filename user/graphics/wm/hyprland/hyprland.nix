@@ -80,7 +80,7 @@ in
       general = {
         layout = "master";
         gaps_in = 5;
-        gaps_out = 7;
+        gaps_out = "0, 5, 5, 5";
         border_size = 3;
         "col.active_border" = lib.mkDefault "rgb(89b4fa)";
         "col.inactive_border" = lib.mkDefault "rgb(45475a)";
