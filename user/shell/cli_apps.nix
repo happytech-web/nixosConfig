@@ -7,5 +7,6 @@
     pandoc
     tlrc
     tree
+    unzip
   ];
 }
