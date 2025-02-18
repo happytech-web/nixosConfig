@@ -20,6 +20,7 @@
     /language/cc/cc.nix
     /language/python/python.nix
     /language/java/java.nix
+    /language/latex/latex.nix
 
     /graphics/wm/hyprland/hyprland.nix
   ];
