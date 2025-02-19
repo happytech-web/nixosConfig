@@ -23,6 +23,8 @@
       /wm/hyprland.nix
       #/wm/plasma.nix
       /sh.nix
+
+      /apps/virtualization.nix
     ];
 
 
