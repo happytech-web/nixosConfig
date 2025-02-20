@@ -22,6 +22,7 @@
     /language/java/java.nix
     /language/latex/latex.nix
     /language/node/node.nix
+    /language/sql/sql.nix
 
     /graphics/wm/hyprland/hyprland.nix
   ];
