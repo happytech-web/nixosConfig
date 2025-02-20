@@ -14,6 +14,7 @@
     /apps/terminal/kitty.nix
     /apps/terminal/alacritty.nix
     /apps/tmp/apps.nix
+    /apps/mongodb/mongodb.nix
 
 
     /network/ssh.nix
