@@ -1,6 +1,7 @@
 { config, pkgs, user_settings, global_utils, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
 
   imports = map (file: global_utils.user_path + file) [
     # theme
@@ -14,7 +15,6 @@
     /apps/terminal/kitty.nix
     /apps/terminal/alacritty.nix
     /apps/tmp/apps.nix
-    /apps/mongodb/mongodb.nix
 
 
     /network/ssh.nix

@@ -26,6 +26,7 @@
 
       /apps/virtualization.nix
       /apps/sql/sql.nix
+      /apps/sql/mongodb/mongodb.nix
     ];
 
 
