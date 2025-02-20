@@ -25,6 +25,7 @@
       /sh.nix
 
       /apps/virtualization.nix
+      /apps/sql/sql.nix
     ];
 
 
