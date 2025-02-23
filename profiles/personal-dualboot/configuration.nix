@@ -27,6 +27,7 @@
       /apps/virtualization.nix
       /apps/sql/sql.nix
       /apps/sql/mongodb/mongodb.nix
+      /apps/nix-lang-server/nixd.nix
     ];
 
 
@@ -55,7 +56,7 @@
     emacs29-pgtk
     fira-code
     lxgw-wenkai
-    nil
+    # nil
   ];
 
   fonts.packages = with pkgs; [
