@@ -3,6 +3,7 @@
   imports = map (file: global_utils.system_path + file) [
     # include sddm to greet user
     /sddm/sddm.nix
+    /settings/keyring/gnome-keyring.nix
   ];
 
   environment.variables = {
