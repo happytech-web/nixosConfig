@@ -14,6 +14,7 @@
     /apps/vim/vim.nix
     /apps/terminal/kitty.nix
     /apps/terminal/alacritty.nix
+    /apps/emacs/emacs.nix
     /apps/tmp/apps.nix
 
 
@@ -23,6 +24,7 @@
     /language/java/java.nix
     /language/latex/latex.nix
     /language/node/node.nix
+    /language/rust/rust.nix
 
     /graphics/wm/hyprland/hyprland.nix
   ];
