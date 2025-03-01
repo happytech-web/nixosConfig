@@ -6,5 +6,7 @@
     cmake
     clang-tools
     python312Packages.compiledb
+
+    linux.dev
   ];
 }

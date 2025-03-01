@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +17,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, ... }@inputs:
     let
       system_settings = {
         system = "x86_64-linux";
@@ -34,6 +36,7 @@
         user_path = root_path + /user;
         system_path = root_path + /system;
         home_path = /home + "/" + user_settings.username;
+        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system_settings.system};
       };
     in {
       nixosConfigurations.${system_settings.hostname} = nixpkgs.lib.nixosSystem {

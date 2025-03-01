@@ -25,8 +25,6 @@ in
   
   programs.waybar.systemd.target = systemd_session;
   services.cliphist.systemdTarget = systemd_session;
-  services.emacs.enable = true;
-  services.emacs.package = pkgs.emacs29-pgtk;
 
   home.pointerCursor = lib.mkDefault {
     package = pkgs.bibata-cursors;

@@ -10,6 +10,7 @@
   ];
 
   stylix.targets.waybar.enable = false;
+  stylix.targets.emacs.enable = false;
 
   stylix = {
     enable = true; 
@@ -28,12 +29,12 @@
       #   lxgw-wenkai
       #   fira-code-nerdfont
       # ];
-      monospace = {
-        name = "FiraCode Nerd Font";
-        package = pkgs.fira-code-nerdfont;
-        # name = "Fira Code";
-        # package = pkgs.fira-code;
-      };
+      # monospace = {
+      #   name = "FiraCode Nerd Font";
+      #   package = global_utils.pkgs-unstable.nerd-fonts.fira-code;
+      #   # name = "Fira Code";
+      #   # package = pkgs.fira-code;
+      # };
 
       sansSerif = {
         name = "LXGW WenKai";
@@ -42,12 +43,12 @@
 
       serif = sansSerif;
 
-      emoji = {
-        name = "Noto Color Emoji";
-        package = pkgs.noto-fonts-emoji-blob-bin;
-        # name = "FiraCode Nerd Font";
-        # package = pkgs.fira-code-nerdfont;
-      };
+      # emoji = {
+      #   name = "Noto Color Emoji";
+      #   package = pkgs.noto-fonts-emoji-blob-bin;
+      #   # name = "FiraCode Nerd Font";
+      #   # package = pkgs.fira-code-nerdfont;
+      # };
     };
 
     opacity = {

@@ -26,8 +26,8 @@
       #   fira-code-nerdfont
       # ];
       monospace = {
-        name = "FiraCode Nerd Font Mono";
-        package = pkgs.fira-code-nerdfont;
+        name = "FiraCode Nerd Font";
+        package = global_utils.pkgs-unstable.nerd-fonts.fira-code;
         # name = "FiraCode Nerd Font";
         # package = pkgs.fira-code-nerdfont;
         # name = "Fira Code";
