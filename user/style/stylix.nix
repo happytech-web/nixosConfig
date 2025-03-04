@@ -2,7 +2,7 @@
 {
   imports = [
     inputs.stylix.homeManagerModules.stylix
-    (global_utils.root_path + /themes/moonlight)
+    (global_utils.root_path + /themes/uwunicorn)
   ];
   
   home.packages = with pkgs; [

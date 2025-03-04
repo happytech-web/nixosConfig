@@ -2,7 +2,7 @@
 {
   imports = [
     inputs.stylix.nixosModules.stylix
-    (global_utils.root_path + /themes/moonlight)
+    (global_utils.root_path + /themes/uwunicorn)
   ];
 
   environment.systemPackages = with pkgs; [
