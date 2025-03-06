@@ -12,6 +12,7 @@
     file               
     tokei              # calculate code lines
     glow               # markdown render in tui
+    htop               # system monitor
 
     mongosh # connect to mongodb
   ];

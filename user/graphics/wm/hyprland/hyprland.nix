@@ -162,12 +162,12 @@ in
       
       bind = [
         # === app launching ===
-        "SUPER, Return, exec, alacritty" # 打开终端
+        "SUPER, Return, exec, uwsm app -- kitty" # 打开终端
         "SUPER, Q, killactive" # 关闭窗口
         # "SUPER, D, exec, wofi --show run" # 启动应用
         "SUPER, D, exec, uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)" # 启动应用
-        "SUPER, A, exec, emacsclient -c -a 'emacs'"
-        "SUPER, S, exec, google-chrome-stable --enable-wayland-ime --ozone-platform=wayland --ozone-platform-hint=auto"
+        "SUPER, A, exec, uwsm app -- emacsclient -c -a 'emacs'"
+        "SUPER, S, exec, uwsm app -- google-chrome-stable --enable-wayland-ime --ozone-platform=wayland --ozone-platform-hint=auto"
 
         # === window managing ===
         # full screen

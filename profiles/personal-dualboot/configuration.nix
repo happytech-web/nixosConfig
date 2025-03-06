@@ -34,6 +34,9 @@
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
+  # kernel version
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
+
 
 
   users.users.${user_settings.username} = {
