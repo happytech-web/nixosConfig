@@ -93,7 +93,7 @@ in
           passes = 1;
           contrast = 1.17;
           xray = true;
-          popups = true;
+          # popups = true;
         };
       };
 
