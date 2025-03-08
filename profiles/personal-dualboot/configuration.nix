@@ -34,8 +34,8 @@
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
-  # kernel version
-  boot.kernelPackages = pkgs.linuxPackages_6_6;
+  # kernel version default in 2025-03 will install 6.6.80
+  # boot.kernelPackages = pkgs.linuxPackages_6_6;
 
 
 
@@ -56,7 +56,7 @@
     git
     google-chrome
     # emacs
-    emacs29-pgtk
+    emacs-pgtk
     fira-code
     lxgw-wenkai
     # nil
