@@ -8,8 +8,13 @@
   services.emacs.enable = true;
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs29-pgtk;
-    extraPackages = epkgs: with global_utils.pkgs-unstable.emacsPackages; [
+    package = pkgs.emacs-pgtk;
+    # extraPackages = epkgs: with global_utils.pkgs-unstable.emacsPackages; [
+    #   lsp-bridge
+    #   # markdown-mode
+    #   # yasnippet
+    # ];
+    extraPackages = epkgs: with epkgs; [
       lsp-bridge
       markdown-mode
       yasnippet
