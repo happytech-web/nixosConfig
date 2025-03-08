@@ -27,14 +27,14 @@
     };
   };
 
-  networking.proxy.noProxy = "mirror.sjtu.edu.cn,mirrors.ustc.edu.cn,mirrors.tuna.tsinghua.edu.cn";
+  # networking.proxy.noProxy = "mirror.sjtu.edu.cn,mirrors.ustc.edu.cn,mirrors.tuna.tsinghua.edu.cn";
   
   # set substituters
   nix.settings.substituters = [ 
     "https://cache.nixos.org"
-    "https://mirror.sjtu.edu.cn/nix-channels/store" 
-    "https://mirrors.ustc.edu.cn/nix-channels/store"
-    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+    # "https://mirror.sjtu.edu.cn/nix-channels/store" 
+    # "https://mirrors.ustc.edu.cn/nix-channels/store"
+    # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
   ];
 
 }
