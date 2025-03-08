@@ -16,6 +16,7 @@
     /apps/terminal/alacritty.nix
     /apps/emacs/emacs.nix
     /apps/tmp/apps.nix
+    /apps/apps_collection/apps_collection.nix
 
 
     /network/ssh.nix
