@@ -23,6 +23,8 @@
     htop               # system monitor
     pstree
 
+    just               # simpler to run multiple commands
+
     mongosh # connect to mongodb
   ];
 
