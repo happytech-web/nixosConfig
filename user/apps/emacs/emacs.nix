@@ -11,8 +11,8 @@
     package = pkgs.emacs-pgtk;
     # extraPackages = epkgs: with global_utils.pkgs-unstable.emacsPackages; [
     #   lsp-bridge
-    #   # markdown-mode
-    #   # yasnippet
+    #   markdown-mode
+    #   yasnippet
     # ];
     extraPackages = epkgs: with epkgs; [
       lsp-bridge
