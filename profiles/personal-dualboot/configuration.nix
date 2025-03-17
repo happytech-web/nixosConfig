@@ -24,6 +24,8 @@
       #/wm/plasma.nix
       /sh.nix
 
+      /utils/nix-ld.nix
+
       /apps/virtualization.nix
       /apps/sql/sql.nix
       /apps/sql/mongodb/mongodb.nix
@@ -44,6 +46,8 @@
     description = "${user_settings.username}";
     extraGroups = [ "networkmanager" "wheel" "input" ]; # Enable ‘sudo’ for the user.
   };
+
+
 
   # nix flake related
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
