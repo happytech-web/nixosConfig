@@ -21,7 +21,7 @@
     tokei              # calculate code lines
     glow               # markdown render in tui
     htop               # system monitor
-    pstree
+    psmisc
 
     just               # simpler to run multiple commands
 
