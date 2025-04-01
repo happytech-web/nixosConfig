@@ -22,6 +22,8 @@
     glow               # markdown render in tui
     htop               # system monitor
     psmisc
+    linuxKernel.packages.linux_zen.perf
+    flamegraph
 
     just               # simpler to run multiple commands
 
