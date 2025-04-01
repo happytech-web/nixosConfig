@@ -20,8 +20,10 @@ in
 
   ] ++ [
     # relative path
+    ./hypreco/hypridle.nix
     ./hypreco/hyprpaper.nix
     ./hypreco/hyprshot.nix
+    ./hypreco/hyprlock.nix
   ];
 
   
@@ -43,9 +45,7 @@ in
     name = "Bibata-Modern-Classic";
   };
 
-  # hypridle
   home.packages = with pkgs; [
-    hypridle
     hyprnome
     hyprcursor
     bibata-cursors
@@ -189,32 +189,12 @@ in
         "SUPER,T,togglefloating"
         "SUPER,P,pin"
 
-        # === workspace managing ===
-
-        # simply change
-        # "SUPER, 1, workspace, 1"
-        # "SUPER, 2, workspace, 2"
-        # "SUPER, 3, workspace, 3"
-        # "SUPER, 4, workspace, 4"
-        # "SUPER, 5, workspace, 5"
-        # "SUPER, 6, workspace, 6"
-        # "SUPER, 7, workspace, 7"
-        # "SUPER, 8, workspace, 8"
 
         # hyprnome workspace changing
         "SUPERCTRL, H, exec, hyprnome --previous"
         "SUPERCTRL, L, exec, hyprnome"
         "SUPERCTRLSHIFT, H, exec, hyprnome --previous --move"
         "SUPERCTRLSHIFT, L, exec, hyprnome --move"
-
-        # "SUPERCTRL, 1, movetoworkspace, 1"
-        # "SUPERCTRL, 2, movetoworkspace, 2"
-        # "SUPERCTRL, 3, movetoworkspace, 3"
-        # "SUPERCTRL, 4, movetoworkspace, 4"
-        # "SUPERCTRL, 5, movetoworkspace, 5"
-        # "SUPERCTRL, 6, movetoworkspace, 6"
-        # "SUPERCTRL, 7, movetoworkspace, 7"
-        # "SUPERCTRL, 8, movetoworkspace, 8"
 
         # === basic utils ===
         
@@ -246,10 +226,11 @@ in
         "dunst"
         "fcitx5"
         "hyprpaper"
-        "hypridle"
-        # "waybar"
-        # "emacs --daemon"
         ("hyprctl dispatch workspace " + toString start_workspace)
+      ];
+
+      windowrulev2 = [
+        "float, title:.*Dolphin.*"
       ];
     };
   };
