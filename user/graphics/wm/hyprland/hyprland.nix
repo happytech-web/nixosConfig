@@ -14,7 +14,6 @@ in
     /graphics/basic-utils/keyring/gnome-keyring.nix
     /graphics/basic-utils/file-manager/dolphin.nix
 
-    /graphics/lock/hyprlock.nix
     /graphics/waybar/waybar.nix
     /graphics/app-launcher/wofi.nix
 
