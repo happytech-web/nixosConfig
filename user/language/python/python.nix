@@ -5,5 +5,6 @@
     pyright
     ruff
     basedpyright
+    python312Packages.debugpy
   ];
 }
