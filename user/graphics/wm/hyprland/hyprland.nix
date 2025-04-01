@@ -12,6 +12,7 @@ in
     /graphics/basic-utils/clipboard/cliphist.nix
     /graphics/basic-utils/brightness/brightnessctl.nix
     /graphics/basic-utils/keyring/gnome-keyring.nix
+    /graphics/basic-utils/file-manager/dolphin.nix
 
     /graphics/lock/hyprlock.nix
     /graphics/waybar/waybar.nix
