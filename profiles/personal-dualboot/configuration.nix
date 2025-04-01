@@ -60,7 +60,7 @@
     git
     google-chrome
     # emacs
-    emacs-pgtk
+    # emacs-pgtk
     fira-code
     lxgw-wenkai
     # nil
