@@ -23,6 +23,7 @@ in
     ./hypreco/hyprpaper.nix
     ./hypreco/hyprshot.nix
     ./hypreco/hyprlock.nix
+    ./hypreco/pyprland.nix
   ];
 
   
@@ -169,6 +170,7 @@ in
         "SUPER, D, exec, uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)" # 启动应用
         "SUPER, A, exec, uwsm app -- emacsclient -c -a 'emacs'"
         "SUPER, S, exec, uwsm app -- google-chrome-stable --enable-wayland-ime --ozone-platform=wayland --ozone-platform-hint=auto"
+        "SUPER, Tab, exec, pypr toggle term"
 
         # === window managing ===
         # full screen
@@ -225,6 +227,7 @@ in
         "dunst"
         "fcitx5"
         "hyprpaper"
+        "pypr"
         ("hyprctl dispatch workspace " + toString start_workspace)
       ];
 
