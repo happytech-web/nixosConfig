@@ -16,6 +16,7 @@
     /apps/terminal/alacritty.nix
     /apps/emacs/emacs.nix
     /apps/neovim/neovim.nix
+    /apps/browser/firefox.nix
     /apps/tmp/apps.nix
     /apps/apps_collection/apps_collection.nix
 
