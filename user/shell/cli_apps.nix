@@ -4,6 +4,8 @@
   home.packages = with pkgs; [
     disfetch fastfetch
 
+    usbutils
+
     # file managing
     eza bat
     tree
