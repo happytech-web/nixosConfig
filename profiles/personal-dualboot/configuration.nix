@@ -17,6 +17,7 @@
       /settings/media/pipewire.nix
       /settings/input/fcitx.nix
       /settings/dbus/dbus.nix
+      /settings/xdg/xdg.nix
 
       /networking/network.nix
 
