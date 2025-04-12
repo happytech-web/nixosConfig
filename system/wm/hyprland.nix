@@ -8,6 +8,6 @@
     enable = true;
     withUWSM = true;
     xwayland.enable = true;
-    # dont worry xdg-desktop-protal-hyprland, hyprland.enable already do it for us
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 }
