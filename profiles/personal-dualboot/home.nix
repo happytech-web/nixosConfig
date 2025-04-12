@@ -11,11 +11,13 @@
     /shell/sh.nix # shell configuration
     /shell/cli_apps.nix
     /apps/git/git.nix
-    /apps/vim/vim.nix
     /apps/terminal/kitty.nix
     /apps/terminal/alacritty.nix
-    /apps/emacs/emacs.nix
-    /apps/neovim/neovim.nix
+
+    /apps/editor/emacs/emacs.nix
+    /apps/editor/neovim/neovim.nix
+    /apps/editor/vim/vim.nix
+
     /apps/browser/firefox.nix
     /apps/tmp/apps.nix
     /apps/apps_collection/apps_collection.nix
