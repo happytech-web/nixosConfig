@@ -4,4 +4,8 @@
   users.defaultUserShell = pkgs.zsh;
   users.users.${user_settings.username}.shell = pkgs.zsh;
   programs.zsh.enable = true;
+
+  services.locate = {
+    enable = true;
+  };
 }
