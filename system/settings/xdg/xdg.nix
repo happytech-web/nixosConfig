@@ -16,7 +16,9 @@
         };
         hyprland = {
           default = ["hyprland" "gtk"];
-          "org.freedesktop.impl.portal.FileChooser=kde"
+          "org.freedesktop.impl.portal.FileChooser" = [
+            "kde"
+          ];
         };
       };
     };
