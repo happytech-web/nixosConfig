@@ -2,6 +2,8 @@
 let
   systemd_session = "hyprland-session.target";
   start_workspace = 500000;
+  spawn_google = "google-chrome-stable --enable-wayland-ime --ozone-platform=wayland --ozone-platform-hint=auto";
+  spawn_firefox = "firefox";
 in
 {
   imports = map (file: global_utils.user_path + file) [
@@ -56,6 +58,7 @@ in
     systemd = {
       enable = true;
       enableXdgAutostart = true;
+      variables = ["--all"];
     };
     settings = {
       env = [
@@ -169,7 +172,7 @@ in
         # "SUPER, D, exec, wofi --show run" # 启动应用
         "SUPER, D, exec, uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)" # 启动应用
         "SUPER, A, exec, uwsm app -- emacsclient -c -a 'emacs'"
-        "SUPER, S, exec, uwsm app -- google-chrome-stable --enable-wayland-ime --ozone-platform=wayland --ozone-platform-hint=auto"
+        "SUPER, S, exec, uwsm app -- ${spawn_firefox}"
         "SUPER, Tab, exec, pypr toggle term"
 
         # === window managing ===
