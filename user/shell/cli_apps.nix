@@ -11,6 +11,9 @@
     tree
     rnr                # rename in rust
 
+    # finder
+    ripgrep
+
     man man-pages man-pages-posix
     # tealdeer
     tlrc               # tldr in rust
@@ -19,6 +22,7 @@
     pandoc
     unzip
     zip
+    p7zip
     file               
     tokei              # calculate code lines
     glow               # markdown render in tui
