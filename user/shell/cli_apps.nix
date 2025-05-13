@@ -22,8 +22,10 @@
     pandoc
     unzip
     zip
+    unrar
     p7zip
-    file               
+
+    file
     tokei              # calculate code lines
     glow               # markdown render in tui
     htop               # system monitor
@@ -34,6 +36,7 @@
     just               # simpler to run multiple commands
 
     mongosh # connect to mongodb
+    mermaid-cli # picture drawing
   ];
 
   programs.thefuck = {
