@@ -5,5 +5,6 @@
     qq
     wpsoffice
     zed-editor
+    gimp
   ];
 }

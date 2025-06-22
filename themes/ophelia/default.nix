@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   stylix = {
-   image = ./ophelia.jpg;
+   image = ./ophelia_new.jpg;
    polarity = "dark";
   };
 }
