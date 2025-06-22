@@ -2,9 +2,9 @@
 {
   imports = [
     inputs.stylix.homeManagerModules.stylix
-    (global_utils.root_path + /themes/uwunicorn)
+    (global_utils.root_path + /themes/ophelia)
   ];
-  
+
   home.packages = with pkgs; [
     base16-schemes
   ];
@@ -13,7 +13,7 @@
   stylix.targets.emacs.enable = false;
 
   stylix = {
-    enable = true; 
+    enable = true;
     autoEnable = true;
     # fonts: todo
 

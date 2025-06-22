@@ -37,6 +37,8 @@
 
     mongosh # connect to mongodb
     mermaid-cli # picture drawing
+
+    marp-cli # markdown to pdf
   ];
 
   programs.thefuck = {

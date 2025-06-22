@@ -5,9 +5,13 @@
     networkmanager.enable = true;
   };
 
-  # install clash 
+  # install clash
   environment.systemPackages = with pkgs; [
     clash-verge-rev
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "clash-verge-rev-1.7.7"
   ];
 
   programs.clash-verge = {
@@ -28,11 +32,11 @@
   };
 
   # networking.proxy.noProxy = "mirror.sjtu.edu.cn,mirrors.ustc.edu.cn,mirrors.tuna.tsinghua.edu.cn";
-  
+
   # set substituters
-  nix.settings.substituters = [ 
+  nix.settings.substituters = [
     "https://cache.nixos.org"
-    # "https://mirror.sjtu.edu.cn/nix-channels/store" 
+    # "https://mirror.sjtu.edu.cn/nix-channels/store"
     # "https://mirrors.ustc.edu.cn/nix-channels/store"
     # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
   ];

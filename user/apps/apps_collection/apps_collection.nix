@@ -4,5 +4,6 @@
     postman
     qq
     wpsoffice
+    zed-editor
   ];
 }
