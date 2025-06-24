@@ -9,7 +9,7 @@
     cmake-language-server
     clang-tools
 
-    python312Packages.compiledb
+    compiledb
 
     valgrind-light
     gdb

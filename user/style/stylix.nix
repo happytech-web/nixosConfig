@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, global_utils,... }:
 {
   imports = [
-    inputs.stylix.homeManagerModules.stylix
+    inputs.stylix.homeModules.stylix
     (global_utils.root_path + /themes/ophelia)
   ];
 
@@ -11,6 +11,8 @@
 
   stylix.targets.waybar.enable = false;
   stylix.targets.emacs.enable = false;
+  stylix.targets.alacritty.enable = false;
+  stylix.targets.starship.enable = false;
 
   stylix = {
     enable = true;

@@ -28,9 +28,9 @@ in
     ./hypreco/pyprland.nix
   ];
 
-  
+
   programs.waybar.systemd.target = systemd_session;
-  services.cliphist.systemdTarget = systemd_session;
+  services.cliphist.systemdTargets = systemd_session;
 
   home.pointerCursor = lib.mkDefault {
     package = pkgs.bibata-cursors;
@@ -76,7 +76,7 @@ in
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
         "HYPRCURSOR_SIZE,24"
       ];
-      
+
       # configure the monitor
       monitor = ",preferred,auto,auto";
 
@@ -124,7 +124,7 @@ in
              "specialWorkspace, 1, 6, default, slidefadevert -50%"
            ];
       };
-      
+
       input = {
         # key
         kb_layout = "us";
@@ -164,7 +164,7 @@ in
       cursor = {
         inactive_timeout = 30;
       };
-      
+
       bind = [
         # === app launching ===
         "SUPER, Return, exec, uwsm app -- kitty" # 打开终端
@@ -189,7 +189,7 @@ in
         "SUPERSHIFT,J,movewindow,d"
         "SUPERSHIFT,K,movewindow,u"
         "SUPERSHIFT,L,movewindow,r"
-        
+
         "SUPER,T,togglefloating"
         "SUPER,P,pin"
 
@@ -201,10 +201,10 @@ in
         "SUPERCTRLSHIFT, L, exec, hyprnome --move"
 
         # === basic utils ===
-        
+
         # clipboard manager
         "SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
-        
+
         # brightness
         ", xf86monbrightnessup, exec, brightnessctl set 10%+"
         ", xf86monbrightnessdown, exec, brightnessctl set 10%-"
@@ -224,7 +224,7 @@ in
         "SUPER, mouse:272, movewindow" # 左键
         "SUPER, mouse:273, resizewindow" # 右键
       ];
-      
+
       exec-once = [
         "dbus-update-activation-environment --systemd DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_SESSION_DESKTOP=Hyprland XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_TYPE=wayland"
         "dunst"

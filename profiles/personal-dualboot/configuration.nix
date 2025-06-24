@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ 
+    [
       ./hardware-configuration.nix
     ] ++ map (file: global_utils.system_path + file) [
       # theme
@@ -13,7 +13,7 @@
 
       /hardware/bluetooth.nix
       /hardware/opengl.nix
-      
+
       /settings/media/pipewire.nix
       /settings/input/fcitx.nix
       /settings/dbus/dbus.nix
@@ -69,10 +69,9 @@
   fonts.packages = with pkgs; [
     fira-code
     lxgw-wenkai
-    fira-code-nerdfont
+    nerd-fonts.fira-code
   ];
 
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }
-
