@@ -13,6 +13,7 @@
 
     # finder
     ripgrep
+    fd
 
     man man-pages man-pages-posix
     # tealdeer

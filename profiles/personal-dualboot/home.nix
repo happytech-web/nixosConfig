@@ -21,6 +21,7 @@
     /apps/browser/firefox.nix
     /apps/tmp/apps.nix
     /apps/apps_collection/apps_collection.nix
+    /apps/apps_collection/yazi.nix
 
 
     /network/ssh.nix
@@ -37,7 +38,7 @@
   home.username = user_settings.username;
   home.homeDirectory = "/home/" + user_settings.username;
 
-  home.stateVersion = "24.11"; 
+  home.stateVersion = "24.11";
 
   home.packages = [
   ];

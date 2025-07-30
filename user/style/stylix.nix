@@ -13,6 +13,8 @@
   stylix.targets.emacs.enable = false;
   stylix.targets.alacritty.enable = false;
   stylix.targets.starship.enable = false;
+  stylix.targets.neovim.enable = false;
+
 
   stylix = {
     enable = true;

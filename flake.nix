@@ -36,7 +36,11 @@
         user_path = root_path + /user;
         system_path = root_path + /system;
         home_path = /home + "/" + user_settings.username;
-        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system_settings.system};
+        pkgs-unstable = import nixpkgs-unstable {
+          system = system_settings.system;
+          config.allowUnfree = true;
+        };
+        # pkgs-unstable = nixpkgs-unstable.legacyPackages.${system_settings.system};
       };
     in {
       nixosConfigurations.${system_settings.hostname} = nixpkgs.lib.nixosSystem {
