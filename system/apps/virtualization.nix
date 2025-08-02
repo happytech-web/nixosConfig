@@ -8,14 +8,12 @@
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "happytech" ];
 
-
   virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";
   };
   users.users."${user_settings.username}".extraGroups = [ "docker" ];
 
-  # qemu
   environment.systemPackages = with pkgs; [
     qemu
   ];

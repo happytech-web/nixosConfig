@@ -10,6 +10,8 @@ in
     lua-language-server
     stylua
     tree-sitter
+    neovide
+    lazygit
   ];
 
   home.file.${paletteLuaPath}.text = ''
