@@ -10,6 +10,7 @@
     eza bat
     tree
     rnr                # rename in rust
+    trash-cli
 
     # finder
     ripgrep
@@ -40,6 +41,7 @@
     mermaid-cli # picture drawing
 
     marp-cli # markdown to pdf
+    glib
   ];
 
   programs.thefuck = {

@@ -8,6 +8,7 @@
     # btw, you need to set export MAVEN_OPTS="-DsocksProxyHost=127.0.0.1 -DsocksProxyPort=7897" to install it succesfully in emacs
     jdt-language-server
     gradle
+    prettierd
   ];
 
   # link .jdk to my jdks. this can let idea find proper jdk

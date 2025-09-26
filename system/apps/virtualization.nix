@@ -15,6 +15,6 @@
   users.users."${user_settings.username}".extraGroups = [ "docker" ];
 
   environment.systemPackages = with pkgs; [
-    qemu
+    qemu_full
   ];
 }

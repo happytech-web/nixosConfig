@@ -68,9 +68,11 @@ in
         "GDK_BACKEND, wayland,x11"
         "QT_QPA_PLATFORM, wayland;xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
-        "QT_AUTO_SCREEN_SCALE-FACTOR, 1"
+        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
         "CLUTTER_BACKEND, wayland"
-        "ADW_DISABLE_PROTAL, 1"
+        # "ADW_DISABLE_PORTAL, 1"
+        "GTK_USE_PORTAL,1"
+
         "XCURSOR_SIZE, 24"
 
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
@@ -226,7 +228,9 @@ in
       ];
 
       exec-once = [
-        "dbus-update-activation-environment --systemd DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_SESSION_DESKTOP=Hyprland XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_TYPE=wayland"
+        "systemctl --user import-environment PATH DISPLAY WAYLAND_DISPLAY XDG_SESSION_DESKTOP XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
+        "systemctl --user restart xdg-desktop-portal.service"
+        # "dbus-update-activation-environment --systemd DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_SESSION_DESKTOP=Hyprland XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_TYPE=wayland"
         "dunst"
         "fcitx5"
         "hyprpaper"
