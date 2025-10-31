@@ -13,6 +13,9 @@
 
     valgrind-light
     gdb
-    lldb
+    pkgs.lldb
+    (pkgs.writeShellScriptBin "codelldb" ''
+      exec "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb" "$@"
+    '')
   ];
 }

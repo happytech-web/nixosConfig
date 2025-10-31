@@ -42,6 +42,9 @@
 
     marp-cli # markdown to pdf
     glib
+    librsvg
+
+    poppler_utils
   ];
 
   programs.thefuck = {

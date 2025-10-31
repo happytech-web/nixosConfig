@@ -8,41 +8,37 @@
         before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
+
       listener = [
         {
           timeout = 300;
-          on-timeout = "brightnessctl -s set 10";
-          on-resume = "brightnessctl -r";
+          on-timeout = "bash -lc '[ ! -f ~/.config/hypr/.nosleep ] && brightnessctl -s set 10'";
+          on-resume  = "brightnessctl -r";
         }
         {
-          # 5min.
+          # 5 min: 键盘背光
           timeout = 300;
-          # turn off keyboard backlight.
-          on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0";
-          # turn on keyboard backlight.
-          on-resume = "brightnessctl -rd rgb:kbd_backlight";
+          on-timeout = "bash -lc '[ ! -f ~/.config/hypr/.nosleep ] && brightnessctl -sd rgb:kbd_backlight set 0'";
+          on-resume  = "brightnessctl -rd rgb:kbd_backlight";
         }
         {
-          # 6.5min
+          # 6.5 min: 锁屏
           timeout = 390;
-          on-timeout = "loginctl lock-session";
-          # lock screen when timeout has passed
+          on-timeout = "bash -lc '[ ! -f ~/.config/hypr/.nosleep ] && loginctl lock-session'";
         }
         {
-          # 7min
+          # 7 min: 熄屏
           timeout = 420;
-          # screen off when timeout has passed
-          on-timeout = "hyprctl dispatch dpms off";
-          # screen on when activity is detected after timeout has fired.
-          on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
+          on-timeout = "bash -lc '[ ! -f ~/.config/hypr/.nosleep ] && hyprctl dispatch dpms off'";
+          on-resume  = "bash -lc 'hyprctl dispatch dpms on && brightnessctl -r'";
         }
         {
-          # 30min
+          # 30 min: 挂起
           timeout = 1800;
-          # suspend pc
-          on-timeout = "systemctl suspend";
+          on-timeout = "bash -lc '[ ! -f ~/.config/hypr/.nosleep ] && systemctl suspend'";
         }
       ];
     };
   };
 }
+

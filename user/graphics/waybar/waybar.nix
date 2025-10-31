@@ -31,12 +31,20 @@ in
       #   "network"
       #   "battery"
       #   "custom/powermenu"
+         "custom/nosleep"
          "group/hardware"
          "tray"
       ];
 
       "custom/logo" = {
         format = " ";
+      };
+
+
+      "custom/nosleep" = {
+        exec = "bash -lc 'if [ -f ~/.config/hypr/.nosleep ]; then echo \"🌙 \"; else echo \"💤 \"; fi'";
+        interval = 5;
+        tooltip = false;
       };
 
       clock = {
@@ -46,7 +54,7 @@ in
       };
 
       battery = {
-        
+
         states = {
             "warning" = 30;
             "critical" = 15;
@@ -110,7 +118,7 @@ in
         font-family: "FiraCode Nerd Font", "LXGW WenKai";
         font-size: 18px;
         border: none;
-        border-radius: 0px;     
+        border-radius: 0px;
       }
 
       window#waybar {
@@ -174,6 +182,7 @@ in
       }
 
 
+      #custom-nosleep,
       #custom-logo,
       #disk, #memory, #cpu,
       #battery,

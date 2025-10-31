@@ -4,6 +4,24 @@ let
   start_workspace = 500000;
   spawn_google = "google-chrome-stable --enable-wayland-ime --ozone-platform=wayland --ozone-platform-hint=auto";
   spawn_firefox = "firefox";
+
+
+
+  toggleNosleep = pkgs.writeShellScriptBin "toggle-nosleep" ''
+    #!/usr/bin/env bash
+    set -euo pipefail
+    FLAG="$HOME/.config/hypr/.nosleep"
+    mkdir -p "$(dirname "$FLAG")"
+    if [ -f "$FLAG" ]; then
+      rm -f "$FLAG"
+      command -v notify-send >/dev/null && notify-send "auto lock: on"
+      echo "auto lock: on"
+    else
+      : > "$FLAG"
+      command -v notify-send >/dev/null && notify-send "auto lock: off"
+      echo "auto lock: off"
+    fi
+  '';
 in
 {
   imports = map (file: global_utils.user_path + file) [
@@ -51,6 +69,7 @@ in
     hyprnome
     hyprcursor
     bibata-cursors
+    toggleNosleep
   ];
 
   wayland.windowManager.hyprland = {
@@ -176,6 +195,9 @@ in
         "SUPER, A, exec, uwsm app -- emacsclient -c -a 'emacs'"
         "SUPER, S, exec, uwsm app -- ${spawn_firefox}"
         "SUPER, Tab, exec, pypr toggle term"
+
+
+        "SUPERCTRLSHIFT, T, exec, ${toggleNosleep}/bin/toggle-nosleep"
 
         # === window managing ===
         # full screen

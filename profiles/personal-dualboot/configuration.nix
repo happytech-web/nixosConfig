@@ -52,6 +52,7 @@
 
   # nix flake related
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "${user_settings.username}" "@wheel" ];
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [

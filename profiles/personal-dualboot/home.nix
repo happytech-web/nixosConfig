@@ -22,6 +22,7 @@
     /apps/tmp/apps.nix
     /apps/apps_collection/apps_collection.nix
     /apps/apps_collection/yazi.nix
+    /apps/apps_collection/codex.nix
 
 
     /network/ssh.nix
@@ -59,7 +60,7 @@
   };
 
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
