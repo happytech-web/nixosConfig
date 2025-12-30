@@ -167,10 +167,6 @@ in
         };
       };
 
-      gestures = {
-        workspace_swipe = true;
-      };
-
       misc = {
         disable_hyprland_logo = true;
         mouse_move_enables_dpms = true;
@@ -243,6 +239,8 @@ in
         "SUPER, PRINT, exec, hyprshot -m window" # a window
         "SUPERCTRL, PRINT, exec, hyprshot -m output" # monitor
       ];
+
+      gesture = "3, horizontal, workspace";
 
       bindm = [
         "SUPER, mouse:272, movewindow" # 左键

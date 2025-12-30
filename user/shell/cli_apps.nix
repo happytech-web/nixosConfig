@@ -19,7 +19,6 @@
     man man-pages man-pages-posix
     # tealdeer
     tlrc               # tldr in rust
-    thefuck
 
     pandoc
     unzip
@@ -44,13 +43,8 @@
     glib
     librsvg
 
-    poppler_utils
+    poppler-utils
   ];
-
-  programs.thefuck = {
-    enable = true;
-    enableZshIntegration = true;
-  };
 
   programs.bat = {
     enable = true;

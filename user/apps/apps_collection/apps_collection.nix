@@ -2,11 +2,12 @@
 {
   home.packages = with pkgs; [
     postman
-    wpsoffice
+    wpsoffice-cn
     zed-editor
     gimp
-    qq
+    # qq
   ] ++ [
-    # global_utils.pkgs-unstable.qq
+    global_utils.pkgs-unstable.qq
+    global_utils.pkgs-unstable.wemeet
   ];
 }

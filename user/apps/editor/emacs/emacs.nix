@@ -8,8 +8,8 @@
   services.emacs.enable = true;
   programs.emacs = {
     enable = true;
-    # package = pkgs.emacs-pgtk;
-    package = global_utils.pkgs-unstable.emacs-pgtk;
+    package = pkgs.emacs-pgtk;
+    # package = global_utils.pkgs-unstable.emacs-pgtk;
     # extraPackages = epkgs: with global_utils.pkgs-unstable.emacsPackages; [
     #   lsp-bridge
     #   markdown-mode
@@ -92,7 +92,7 @@
 
     ;; make font work right
     (set-face-attribute 'default nil :font "Fira Code" :height efs/default-font-size)
-    
+
     ;; Set the fixed pitch face
     (set-face-attribute 'fixed-pitch nil :font "Fira Code" :height efs/default-font-size)
     ;; Set the variable pitch face

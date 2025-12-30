@@ -18,6 +18,7 @@
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       # GitHub 走 443 的 ssh
       "github.com" = {

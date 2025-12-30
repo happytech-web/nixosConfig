@@ -7,6 +7,8 @@
   ];
 
   environment.variables = {
+    # Enable Wayland for Firefox; Chromium uses NIXOS_OZONE_WL
+    MOZ_ENABLE_WAYLAND = "1";
     # NIXOS_OZONE_WL = "1";
     XDG_SESSION_TYPE = "wayland";
   };

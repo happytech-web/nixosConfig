@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    jdk24
     jetbrains.idea-community-bin
     jetbrains.idea-ultimate
     # install it for emacs, but emacs just don't use it. lsp-java want to install it in emacs.d
@@ -15,7 +14,6 @@
   home.file.".jdk/jdk8".source = pkgs.jdk8;
   home.file.".jdk/jdk11".source = pkgs.jdk11;
   home.file.".jdk/temurin-jre-17".source = pkgs.temurin-jre-bin-17;
-  home.file.".jdk/jdk24".source = pkgs.jdk24;
 
   programs.gradle = {
     enable = true;

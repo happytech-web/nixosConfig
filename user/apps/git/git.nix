@@ -6,9 +6,9 @@
 
   programs.git = {
     enable = true;
-    userName = user_settings.name;
-    userEmail = user_settings.email;
-    extraConfig = {
+    settings.user.name = user_settings.name;
+    settings.user.email = user_settings.email;
+    settings = {
       init.defaultBranch = "main";
       credential.helper = "libsecret";
       safe.directory = [ ("/home/" + user_settings.username + "/.dotfiles")

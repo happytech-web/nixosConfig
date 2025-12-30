@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, global_utils, ... }:
 {
   home.packages = with pkgs; [
     gcc
@@ -7,7 +7,7 @@
     cmake
 
     cmake-language-server
-    clang-tools
+    global_utils.pkgs-unstable.clang-tools
 
     compiledb
 
