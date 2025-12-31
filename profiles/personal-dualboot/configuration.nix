@@ -18,6 +18,7 @@
       /settings/input/fcitx.nix
       /settings/dbus/dbus.nix
       /settings/xdg/xdg.nix
+      /settings/power/power.nix
 
       /networking/network.nix
 
