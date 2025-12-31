@@ -34,7 +34,8 @@ in
     /graphics/basic-utils/keyring/gnome-keyring.nix
     /graphics/basic-utils/file-manager/dolphin.nix
 
-    /graphics/waybar/waybar.nix
+    # /graphics/waybar/waybar.nix
+    /graphics/shell/noctalia/noctalia.nix
     /graphics/app-launcher/wofi.nix
 
   ] ++ [
