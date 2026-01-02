@@ -8,6 +8,10 @@
     FCITX5_ENABLE_WAYLAND = "true";
   };
 
+  environment.systemPackages = with pkgs; [
+    fcitx5-configtool
+  ];
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
@@ -17,8 +21,14 @@
         waylandFrontend = true;
         addons = with pkgs; [
           fcitx5-gtk
-          fcitx5-rime
-          qt6Packages.fcitx5-chinese-addons
+          (fcitx5-rime.override {
+            rimeDataPkgs = [
+              rime-data
+              rime-ice
+            ];
+          })
+          fcitx5-chinese-addons
+          # qt6Packages.fcitx5-chinese-addons
           # fcitx5-nord
           # hello
           #

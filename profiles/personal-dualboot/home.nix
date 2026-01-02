@@ -24,6 +24,8 @@
     /apps/apps_collection/yazi.nix
     /apps/apps_collection/codex.nix
 
+    /apps/input/rime-ice.nix
+
 
     /network/ssh.nix
     /language/cc/cc.nix

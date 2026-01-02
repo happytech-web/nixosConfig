@@ -15,9 +15,17 @@
       url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, ... }@inputs:
+  outputs = {
+    self, nixpkgs, nixpkgs-unstable, home-manager,
+    stylix, noctalia, ...
+  }@inputs:
     let
       system_settings = {
         system = "x86_64-linux";
