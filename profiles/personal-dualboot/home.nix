@@ -25,6 +25,7 @@
     /apps/apps_collection/codex.nix
 
     /apps/input/rime-ice.nix
+    /apps/input/fcitx5-mellow.nix
 
 
     /network/ssh.nix
