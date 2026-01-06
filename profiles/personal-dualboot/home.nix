@@ -13,7 +13,7 @@
     /apps/git/git.nix
     /apps/terminal/kitty.nix
     /apps/terminal/alacritty.nix
-    /apps/terminal/tmux.nix
+    /apps/terminal/tmux/tmux.nix
 
     /apps/editor/emacs/emacs.nix
     /apps/editor/neovim/neovim.nix
