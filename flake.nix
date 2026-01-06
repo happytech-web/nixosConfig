@@ -44,6 +44,8 @@
         user_path = root_path + /user;
         system_path = root_path + /system;
         home_path = /home + "/" + user_settings.username;
+        # absolute path to the dotfiles checkout in the user's home
+        dotfiles_path = home_path + "/.dotfiles";
         pkgs-unstable = import nixpkgs-unstable {
           system = system_settings.system;
           config.allowUnfree = true;

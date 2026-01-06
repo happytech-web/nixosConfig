@@ -41,4 +41,13 @@
     # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
   ];
 
+  services.tailscale = {
+    enable = true;
+  };
+
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = [ "tailscale0" ];
+  };
+
 }
