@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    python3 # install a default python for common use
+
     pyright
     ruff
     basedpyright

@@ -9,6 +9,7 @@
     base16-schemes
   ];
 
+  stylix.targets.tmux.enable = false;
   stylix.targets.waybar.enable = false;
   stylix.targets.emacs.enable = false;
   stylix.targets.alacritty.enable = false;
