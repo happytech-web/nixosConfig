@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 {
   imports = [
     inputs.noctalia.homeModules.default
@@ -33,7 +33,7 @@
           showOutline = false;
           showCapsule = true;
           capsuleOpacity = 1;
-          backgroundOpacity = 0.0;
+          backgroundOpacity = lib.mkForce 0.0;
           useSeparateOpacity = true;
           floating = false;
           marginVertical = 0.25;

@@ -8,4 +8,6 @@
   services.locate = {
     enable = true;
   };
+
+  programs.fuse.userAllowOther = true;
 }

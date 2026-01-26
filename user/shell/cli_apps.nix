@@ -29,16 +29,16 @@
 
     file
     tokei              # calculate code lines
-    glow               # markdown render in tui
+    # glow               # markdown render in tui
     htop               # system monitor
-    psmisc
+    # psmisc
 
     # linuxKernel.packages.linux_zen.perf
     # flamegraph
 
     just               # simpler to run multiple commands
 
-    mongosh # connect to mongodb
+    # mongosh # connect to mongodb
     mermaid-cli # picture drawing
 
     marp-cli # markdown to pdf
@@ -46,20 +46,26 @@
     librsvg
 
     poppler-utils
+    ffmpegthumbnailer # for video preview
+    vips
   ];
 
-  programs.bat = {
-    enable = true;
-    extraPackages = with pkgs.bat-extras; [
-      batman
-    ];
-  };
 
   programs = {
     direnv = {
       enable = true;
       enableZshIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
+    };
+    bat = {
+      enable = true;
+      extraPackages = with pkgs.bat-extras; [
+        batman
+      ];
+    };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
     };
   };
 }

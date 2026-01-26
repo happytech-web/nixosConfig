@@ -4,5 +4,7 @@
     libreoffice-qt6-fresh
     graphviz
     ghostscript
+    xhost
+    zathura
   ];
 }

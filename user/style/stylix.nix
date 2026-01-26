@@ -15,6 +15,7 @@
   stylix.targets.alacritty.enable = false;
   stylix.targets.starship.enable = false;
   stylix.targets.neovim.enable = false;
+  stylix.targets.noctalia-shell.enable = false;
 
 
   stylix = {

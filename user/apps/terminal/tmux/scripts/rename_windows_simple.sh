@@ -37,10 +37,11 @@ icon_for() {
     ruby)        printf '' ;;
     java|mvn|gradle) printf '' ;;
     htop|btop|top) printf '' ;;
-    ssh)         printf '' ;;
+    ssh)         printf '' ;;
     lazygit)     printf '' ;;
     bash|zsh|fish|sh) printf '' ;;  # terminal icon
-    codex)       printf '󱚡' ;;
+    codex)       printf '󱚞' ;;
+    opencode)    printf '󰭆'  ;;
     yazi)        printf '󰇥' ;;
     *)           printf ''  ;;
   esac
