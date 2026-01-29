@@ -193,6 +193,7 @@ in
         "SUPER, A, exec, uwsm app -- emacsclient -c -a 'emacs'"
         "SUPER, S, exec, uwsm app -- ${spawn_firefox}"
         "SUPER, Tab, exec, pypr toggle term"
+        "SUPER, Y,   exec, pypr toggle yazi"
 
 
         "SUPERCTRLSHIFT, T, exec, ${toggleNosleep}/bin/toggle-nosleep"

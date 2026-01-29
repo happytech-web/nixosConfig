@@ -48,6 +48,7 @@
     poppler-utils
     ffmpegthumbnailer # for video preview
     vips
+    imv
   ];
 
 
@@ -66,6 +67,9 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+    };
+    imv = {
+      enable = true;
     };
   };
 }

@@ -20,22 +20,22 @@
     extraPackages = epkgs: with epkgs; [
       lsp-bridge
 
-      (melpaBuild {
-        ename = "reader";
-        pname = "emacs-reader";
-        version = "20250630";
-        src = pkgs.fetchFromGitea {
-          domain = "codeberg.org";
-          owner = "divyaranjan";
-          repo = "emacs-reader";
-          rev = "9d62d26fe4ae63e5cecf57bc399b20f7feefb620"; # replace with 'tag' for stable
-          hash = "sha256-hkRa52PYfBG090jior3GPOeZyftwmpr2Q7jPKFHsR88=";
-        };
-        files = ''(:defaults "render-core.so")'';
-        nativeBuildInputs = [ pkgs.pkg-config ];
-        buildInputs = [ pkgs.gcc pkgs.mupdf pkgs.gnumake pkgs.pkg-config ];
-        preBuild = "make clean all";
-      })
+      # (melpaBuild {
+      #   ename = "reader";
+      #   pname = "emacs-reader";
+      #   version = "20250630";
+      #   src = pkgs.fetchFromGitea {
+      #     domain = "codeberg.org";
+      #     owner = "divyaranjan";
+      #     repo = "emacs-reader";
+      #     rev = "9d62d26fe4ae63e5cecf57bc399b20f7feefb620"; # replace with 'tag' for stable
+      #     hash = "sha256-hkRa52PYfBG090jior3GPOeZyftwmpr2Q7jPKFHsR88=";
+      #   };
+      #   files = ''(:defaults "render-core.so")'';
+      #   nativeBuildInputs = [ pkgs.pkg-config ];
+      #   buildInputs = [ pkgs.gcc pkgs.mupdf pkgs.gnumake pkgs.pkg-config ];
+      #   preBuild = "make clean all";
+      # })
     ];
 
     # extraConfig = ''
