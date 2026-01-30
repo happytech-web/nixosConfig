@@ -1,10 +1,10 @@
 { pkgs, global_utils, ... }:
 {
   home.packages = with pkgs; [
-    postman
+    # postman
     wpsoffice-cn
     zed-editor
-    gimp
+    # gimp
   ] ++ [
     global_utils.pkgs-unstable.qq
     global_utils.pkgs-unstable.wemeet
