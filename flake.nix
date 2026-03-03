@@ -73,6 +73,7 @@
           ];
           extraSpecialArgs = {
             inherit inputs;
+            inherit system_settings;
             inherit user_settings;
             inherit global_utils;
           };

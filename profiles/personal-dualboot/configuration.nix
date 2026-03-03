@@ -22,7 +22,8 @@
 
       /networking/network.nix
 
-      /wm/hyprland.nix
+      # /wm/hyprland.nix
+      /wm/niri.nix
       #/wm/plasma.nix
       /sh.nix
 

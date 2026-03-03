@@ -1,0 +1,188 @@
+spawn-at-startup "fcitx5"
+
+prefer-no-csd
+input {
+  keyboard {
+    xkb {
+      layout "us"
+      options "ctrl:swapcaps"
+    }
+    repeat-rate 45
+    repeat-delay 400
+
+    numlock
+  }
+
+  touchpad {
+    tap
+    dwt
+    natural-scroll
+    scroll-factor 0.8
+    drag true
+    scroll-method "two-finger"
+  }
+
+  disable-power-key-handling
+  warp-mouse-to-focus
+  focus-follows-mouse max-scroll-amount="30%"
+  workspace-auto-back-and-forth
+
+  mod-key "Super"
+}
+
+cursor {
+  xcursor-theme "Bibata-Modern-Classic"
+  xcursor-size 24
+
+  hide-when-typing
+  hide-after-inactive-ms 1000
+}
+
+binds {
+  Mod+Return { spawn "kitty"; }
+  Mod+Q { close-window; }
+  Mod+A { spawn-sh "emacsclient -c -a 'emacs'"; }
+  Mod+S { spawn "firefox"; }
+  // Core Noctalia binds
+  Mod+D hotkey-overlay-title="Toggle Launcher" {
+    spawn-sh "noctalia-shell ipc call launcher toggle";
+  }
+
+  Mod+V hotkey-overlay-title="Toggle cliphist" {
+    spawn-sh "noctalia-shell ipc call launcher clipboard";
+  }
+
+  Mod+J { focus-window-down-or-top; }
+  Mod+K { focus-window-up-or-bottom; }
+  Mod+H { focus-column-left-or-last; }
+  Mod+L { focus-column-right-or-first; }
+
+  Mod+Ctrl+J { focus-workspace-down; }
+  Mod+Ctrl+K { focus-workspace-up; }
+  Mod+Ctrl+H { focus-column-left; }
+  Mod+Ctrl+L { focus-column-right; }
+
+  Mod+Shift+Ctrl+J { move-workspace-down; }
+  Mod+Shift+Ctrl+K { move-workspace-up; }
+  Mod+Ctrl+Shift+H { move-column-left; }
+  Mod+Ctrl+Shift+L { move-column-right; }
+
+  Mod+Shift+J { move-column-to-workspace-down; }
+  Mod+Shift+K { move-column-to-workspace-up; }
+  Mod+Shift+H { consume-or-expel-window-left; }
+  Mod+Shift+L { consume-or-expel-window-right; }
+
+  Mod+Backspace { maximize-window-to-edges; }
+  Mod+Ctrl+Backspace { fullscreen-window; }
+
+  Mod+F { maximize-column; }
+  Mod+R { switch-preset-column-width; }
+
+  Mod+T { toggle-window-floating; }
+
+
+
+
+  // Audio & Brightness
+  XF86AudioRaiseVolume { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
+  XF86AudioLowerVolume { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+  XF86AudioMute { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+  XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+  XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+
+  Print { screenshot show-pointer=false; }
+  Mod+Print { screenshot-window; }
+  Mod+Ctrl+Print { screenshot-screen show-pointer=false; }
+
+  // Mod+O { toggle-window-rule-opacity; }
+  Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
+  Mod+O { toggle-overview; }
+
+  Mod+Tab {
+    spawn-sh "kitten quick-access-terminal --detach --instance-group scratch-term";
+  }
+
+  Mod+Y {
+    spawn-sh "kitten quick-access-terminal --detach --instance-group scratch-yazi -- yazi";
+  }
+}
+
+
+window-rule {
+    match app-id=r#".*scratch.*"#
+    open-on-workspace "scratch"
+    open-floating true
+    default-column-width { fixed 1200; }
+    default-window-height { fixed 700; }
+}
+
+
+layout {
+  gaps 5
+  struts {
+    left 0
+    right 0
+    top -5
+    bottom 0
+  }
+  center-focused-column "never"
+  empty-workspace-above-first
+  default-column-display "tabbed"
+  tab-indicator {
+    place-within-column
+    hide-when-single-tab
+    position "left"
+    width 3
+    gap 3
+    active-color "__TAB_ACTIVE_COLOR__"
+    inactive-color "__INACTIVE_COLOR__"
+    urgent-color "__URGENT_COLOR__"
+  }
+
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+    fixed 1280
+  }
+  default-column-width { proportion 1.0; }
+  preset-window-heights {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+    fixed 720
+  }
+  focus-ring {
+    off
+  }
+  border {
+    width 3
+
+    active-color "__ACTIVE_COLOR__"
+    inactive-color "__INACTIVE_COLOR__"
+    urgent-color "__URGENT_COLOR__"
+  }
+  shadow {
+    on
+  }
+  insert-hint {
+      color "__INACTIVE_COLOR__"
+  }
+  background-color "__INACTIVE_COLOR__"
+}
+
+window-rule {
+  // open-maximized true
+  geometry-corner-radius 12
+  clip-to-geometry true
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}

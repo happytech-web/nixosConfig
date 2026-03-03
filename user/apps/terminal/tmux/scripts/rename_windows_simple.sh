@@ -22,6 +22,51 @@ truncate_name() {
   fi
 }
 
+# Return ssh target (host or alias) for a given tty, if any.
+ssh_target_from_tty() {
+  local tty="$1"
+  local line target
+  [ -z "$tty" ] && return 1
+  line=$(ps -t "$tty" -o args= 2>/dev/null | awk '$1=="ssh"{print;}' | tail -n 1)
+  [ -z "$line" ] && return 1
+
+  # Split command line into args (best-effort; no complex quoting support).
+  read -r -a args <<<"$line"
+  local skip_next=0
+  for ((i=1; i<${#args[@]}; i++)); do
+    local arg="${args[$i]}"
+    if [ "$skip_next" -eq 1 ]; then
+      skip_next=0
+      continue
+    fi
+    case "$arg" in
+      --)
+        target="${args[$((i+1))]:-}"
+        break
+        ;;
+      -[pLiFJSoBbcmDEIwRQW])
+        skip_next=1
+        continue
+        ;;
+      -[pLiFJSoBbcmDEIwRQW]*)
+        # option with attached value (e.g. -p22); ignore
+        continue
+        ;;
+      -*)
+        continue
+        ;;
+      *)
+        target="$arg"
+        break
+        ;;
+    esac
+  done
+
+  [ -z "${target:-}" ] && return 1
+  target="${target#*@}"
+  printf '%s' "$target"
+}
+
 # Built-in icon map (Nerd Font / common glyphs)
 icon_for() {
   case "$1" in
@@ -105,6 +150,33 @@ compose_name() {
   esac
 }
 
+compose_ssh_name() {
+  local target="$1"
+  local style icon
+  style=$(tmux show -gqv @swn_icon_style 2>/dev/null || true)
+  [ -z "$style" ] && style="icon"
+
+  if ! icon=$(icon_override_for ssh); then
+    icon=$(icon_for ssh)
+  fi
+
+  case "$style" in
+    name)
+      printf 'ssh:%s' "$target"
+      ;;
+    icon|name_and_icon)
+      if [ -n "$icon" ]; then
+        printf '%s %s' "$icon" "$target"
+      else
+        printf 'ssh:%s' "$target"
+      fi
+      ;;
+    *)
+      printf 'ssh:%s' "$target"
+      ;;
+  esac
+}
+
 log_file="/tmp/simple-window-name.log"
 max_len=$(tmux show -gqv @swn_max_len 2>/dev/null || true)
 [ -n "$max_len" ] || max_len=15
@@ -116,6 +188,7 @@ printf '[%s] run: session=%s\n' "$(date +'%F %T')" "$(tmux display-message -p '#
 while IFS= read -r win_id; do
   cur_path=$(tmux display-message -p -t "$win_id" '#{pane_current_path}')
   cur_cmd=$(tmux display-message -p -t "$win_id" '#{pane_current_command}')
+  cur_tty=$(tmux display-message -p -t "$win_id" '#{pane_tty}')
 
   if [ -z "${cur_path:-}" ]; then
     dir_name="$(basename -- "$HOME")"
@@ -153,7 +226,15 @@ while IFS= read -r win_id; do
         ;;
     esac
   else
-    name="$(compose_name "$basecmd" "$dir_name")"
+    if [ "$basecmd" = "ssh" ]; then
+      if target="$(ssh_target_from_tty "$cur_tty")"; then
+        name="$(compose_ssh_name "$target")"
+      else
+        name="$(compose_name "$basecmd" "$dir_name")"
+      fi
+    else
+      name="$(compose_name "$basecmd" "$dir_name")"
+    fi
   fi
 
   name="$(truncate_name "$name" "$max_len")"

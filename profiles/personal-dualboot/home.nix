@@ -23,6 +23,7 @@
     /apps/editor/vim/vim.nix
 
     /apps/browser/firefox.nix
+    /apps/browser/qutebrowser.nix
     /apps/tmp/apps.nix
     /apps/apps_collection/apps_collection.nix
     /apps/apps_collection/yazi.nix
@@ -40,7 +41,8 @@
     /language/node/node.nix
     /language/rust/rust.nix
 
-    /graphics/wm/hyprland/hyprland.nix
+    # /graphics/wm/hyprland/hyprland.nix
+    /graphics/wm/niri/niri.nix
   ];
 
   home.username = user_settings.username;

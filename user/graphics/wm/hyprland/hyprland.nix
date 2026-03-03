@@ -60,7 +60,7 @@ in
     };
   };
 
-  gtk.cursorTheme = {
+  gtk.cursorTheme = lib.mkDefault {
     package = pkgs.bibata-cursors;
     size = 24;
     name = "Bibata-Modern-Classic";
@@ -264,6 +264,9 @@ in
 
       windowrulev2 = [
         "float, title:.*Dolphin.*"
+        "float, title:.*float-term.*"
+        "center, title:.*float-term.*"
+        "size 60% 70%, title:.*float-term.*"
       ];
     };
   };
