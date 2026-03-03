@@ -19,6 +19,15 @@
       map - zoom out
 
       set selection-clipboard clipboard
+
+    # --- Dark mode (recolor) ---
+    set recolor false              # 默认正常颜色
+    set recolor-keephue true       # 图片/公式不乱色
+    set recolor-darkcolor "#1e1e2e"
+    set recolor-lightcolor "#cdd6f4"
+
+    # toggle dark mode
+    map t set recolor toggle
     '';
   };
 }

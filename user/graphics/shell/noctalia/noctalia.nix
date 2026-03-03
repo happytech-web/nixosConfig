@@ -4,6 +4,10 @@
     inputs.noctalia.homeModules.default
   ];
 
+  home.packages = with pkgs; [
+    gpu-screen-recorder
+  ];
+
   home.file.".cache/noctalia/wallpapers.json" =
     let
     wallpaper = if builtins.hasAttr "stylix" config &&
@@ -24,6 +28,48 @@
     programs.noctalia-shell = {
       enable = true;
       systemd.enable = true;
+      plugins = {
+        sources = [
+          {
+            enabled = true;
+            name = "Official Noctalia Plugins";
+            url = "https://github.com/noctalia-dev/noctalia-plugins";
+          }
+        ];
+        states = {
+          catwalk = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          screen-recorder = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+        };
+        version = 1;
+      };
+      pluginSettings = {
+        catwalk = {
+          minimumThreshold = 5;
+          hideBackground = true;
+        };
+
+        screen-recorder = {
+          hideInactive = false;
+          directory = "";
+          filenamePattern = "recording_yyyyMMdd_HHmmss";
+          frameRate = "60";
+          audioCodec = "opus";
+          videoCodec = "h264";
+          quality = "very_high";
+          colorRange = "limited";
+          showCursor = true;
+          copyToClipboard = false;
+          audioSource = "default_output";
+          videoSource = "portal";
+          resolution = "original";
+        };
+      };
       settings = {
         settingsVersion = 0;
         bar = {
@@ -309,7 +355,7 @@
           diskPath = "/";
         };
         dock = {
-          enabled = true;
+          enabled = false;
           displayMode = "auto_hide";
           backgroundOpacity = 1;
           floatingRatio = 1;
