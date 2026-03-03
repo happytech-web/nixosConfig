@@ -1,4 +1,4 @@
-{config, pkgs, user_settings, ...}:
+{ pkgs, user_settings, global_utils, ... }:
 {
   home.packages = with pkgs; [
     git
@@ -10,9 +10,12 @@
     settings.user.email = user_settings.email;
     settings = {
       init.defaultBranch = "main";
-      credential.helper = "libsecret";
-      safe.directory = [ ("/home/" + user_settings.username + "/.dotfiles")
-                       ("/home/" + user_settings.username + "/.dotfiles/.git") ];
+      credential.helper =
+        if pkgs.stdenv.isDarwin then "osxkeychain" else "libsecret";
+      safe.directory = [
+        global_utils.dotfiles_path
+        (global_utils.dotfiles_path + "/.git")
+      ];
     };
   };
 }

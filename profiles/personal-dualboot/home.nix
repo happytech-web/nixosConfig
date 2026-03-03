@@ -1,8 +1,6 @@
 { config, pkgs, user_settings, global_utils, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
-
   imports = map (file: global_utils.user_path + file) [
     # settings
     /settings/session.nix
@@ -44,7 +42,7 @@
   ];
 
   home.username = user_settings.username;
-  home.homeDirectory = "/home/" + user_settings.username;
+  home.homeDirectory = user_settings.homeDirectory;
 
   home.stateVersion = "25.11";
 
