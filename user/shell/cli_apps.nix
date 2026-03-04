@@ -1,10 +1,7 @@
-{ pkgs, ... }:
-{
-  # collection of my CLI apps
-  home.packages = with pkgs; [
+{ pkgs, lib, ... }:
+let
+  commonPackages = with pkgs; [
     disfetch fastfetch
-
-    usbutils
 
     # file managing
     eza bat
@@ -48,8 +45,16 @@
     poppler-utils
     ffmpegthumbnailer # for video preview
     vips
+  ];
+
+  linuxOnlyPackages = with pkgs; [
+    usbutils
     imv
   ];
+in
+{
+  # collection of my CLI apps
+  home.packages = commonPackages ++ lib.optionals pkgs.stdenv.isLinux linuxOnlyPackages;
 
 
   programs = {
@@ -68,12 +73,13 @@
       enable = true;
       enableZshIntegration = true;
     };
-    imv = {
-      enable = true;
-    };
     fzf = {
       enable = true;
       enableZshIntegration = true;
+    };
+  } // lib.optionalAttrs pkgs.stdenv.isLinux {
+    imv = {
+      enable = true;
     };
   };
 }

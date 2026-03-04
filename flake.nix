@@ -101,6 +101,7 @@
         in home-manager.lib.homeManagerConfiguration {
           pkgs = mkPkgs host.pkgsSource system_settings.system;
           modules = [
+            inputs.stylix.homeModules.stylix
             (./profiles + "/${system_settings.profile}/home.nix")
           ];
           extraSpecialArgs = mkArgs hostname host;
@@ -135,6 +136,8 @@
                 {
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
+                  home-manager.backupFileExtension = "backup";
+                  home-manager.sharedModules = [ inputs.stylix.homeModules.stylix ];
                   home-manager.extraSpecialArgs = args;
                   home-manager.users.${user_settings.username} =
                     import (./profiles + "/${system_settings.profile}/home.nix");

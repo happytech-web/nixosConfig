@@ -1,12 +1,9 @@
-{ config, lib, pkgs, global_utils, ... }:
-let
-  tmux_path = "${config.home.homeDirectory}/.dotfiles/user/apps/terminal/tmux/";
-in
+{ config, pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
     extraConfig = ''
-      source-file ${tmux_path + "tmux.conf"}
+      source-file ${config.xdg.configHome}/tmux/tmux.conf
     '';
     plugins = [
       {
@@ -18,5 +15,9 @@ in
       }
     ];
   };
+
+  xdg.configFile."tmux/tmux.conf".source = ./tmux.conf;
+  xdg.configFile."tmux/fzf_panes.sh".source = ./fzf_panes.sh;
+  xdg.configFile."tmux/scripts".source = ./scripts;
 
 }

@@ -8,5 +8,11 @@ gc:
 	# https://github.com/NixOS/nix/issues/8508
 	nix-collect-garbage --delete-old
 
+linux-switch:
+	sudo nixos-rebuild switch --flake .#happyMachine
+
+mac-switch:
+	sudo darwin-rebuild switch --flake .#happyMac
+
 update:
 	nix flake update

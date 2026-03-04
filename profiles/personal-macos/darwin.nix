@@ -17,11 +17,55 @@
     vim
   ];
 
-  system.defaults = {
-    dock.autohide = true;
-    finder.AppleShowAllExtensions = true;
-    NSGlobalDomain.ApplePressAndHoldEnabled = false;
+  time.timeZone = "Asia/Shanghai";
+
+  system = {
+    keyboard = {
+      enableKeyMapping = true;
+      swapLeftCommandAndLeftAlt = true;
+      remapCapsLockToControl = true;
+    };
+
+
+    defaults = {
+
+      NSGlobalDomain = {
+        ApplePressAndHoldEnabled = false;
+        KeyRepeat = 2;
+        InitialKeyRepeat = 15;
+      };
+
+      trackpad = {
+        Clicking = true;
+        Dragging = true;
+        TrackpadRightClick = true;
+        DragLock = false;
+      };
+
+      dock = {
+        autohide = true;
+        magnification = true;
+        # most recently used spaces
+        mru-spaces = false;
+        tilesize = 32;
+        largesize = 96;
+      };
+
+      finder = {
+        AppleShowAllExtensions = true;
+        # bottom status bar
+        ShowStatusBar = true;
+        ShowPathbar = true;
+
+        # default to list view
+        FXPreferredViewStyle = "Nlsv";
+        # full path in window title
+        _FXShowPosixPathInTitle = true;
+      };
+    };
+
+    stateVersion = 6;
   };
 
-  system.stateVersion = 6;
+  security.pam.services.sudo_local.touchIdAuth = true;
 }

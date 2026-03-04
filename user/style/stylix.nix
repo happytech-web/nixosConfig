@@ -1,7 +1,6 @@
 { pkgs, lib, inputs, global_utils,... }:
 {
   imports = [
-    inputs.stylix.homeModules.stylix
     (global_utils.root_path + /themes/ophelia)
   ];
 
