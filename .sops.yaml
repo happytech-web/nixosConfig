@@ -1,0 +1,7 @@
+keys:
+  - &happytech_age age1nmqy3hrg8yg80crud2fgg2jghkzckwkpj5p9dd6e6v6ytknjvy5qv780mn
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|yml|json|env|ini)$
+    key_groups:
+      - age:
+          - *happytech_age

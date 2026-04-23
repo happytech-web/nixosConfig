@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, global_utils,... }:
 {
   home.packages = with pkgs; [
     texliveFull
-    typst
+    global_utils.pkgs-unstable.typst
     tinymist
   ];
 }

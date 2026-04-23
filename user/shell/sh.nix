@@ -24,6 +24,12 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
+    initContent = ''
+      # Load Home Manager session variables in interactive zsh shells.
+      if [ -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+        . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+      fi
+    '';
     plugins = [
       {
         name = "fzf-tab";

@@ -172,8 +172,8 @@
           allowPanelsOnScreenWithoutBar = true;
         };
         ui = {
-          fontDefault = "";
-          fontFixed = "";
+          fontDefault = "LXGW WenKai";
+          fontFixed = "Fira Code";
           fontDefaultScale = 1;
           fontFixedScale = 1;
           tooltipsEnabled = true;

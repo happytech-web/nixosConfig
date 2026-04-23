@@ -73,7 +73,17 @@
     fira-code
     lxgw-wenkai
     nerd-fonts.fira-code
+    google-fonts
   ];
+
+  fonts.fontconfig = {
+    defaultFonts = {
+      monospace = [ "Fira Code" "LXGW WenKai" ];
+      sansSerif = [ "LXGW WenKai" ];
+      serif = [ "LXGW WenKai" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
 
 
   system.stateVersion = "25.05"; # Did you read the comment?

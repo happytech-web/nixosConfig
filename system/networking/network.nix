@@ -45,9 +45,19 @@
     enable = true;
   };
 
+  services.openssh = {
+    enable = true;
+    settings = {
+      PubkeyAuthentication = true;
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
+  };
+
   networking.firewall = {
     enable = true;
     trustedInterfaces = [ "tailscale0" ];
+    allowedTCPPorts = [ 22 ];
   };
 
 }

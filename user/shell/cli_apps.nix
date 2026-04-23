@@ -26,6 +26,7 @@
     zip
     unrar
     p7zip
+    gh
 
     file
     tokei              # calculate code lines

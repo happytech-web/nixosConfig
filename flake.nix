@@ -20,6 +20,16 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    codex-nix = {
+      url = "github:SecBear/codex-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -69,6 +79,7 @@
         ${user_settings.username} = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system_settings.system};
           modules = [
+          inputs.sops-nix.homeManagerModules.sops
           (./profiles + "/${system_settings.profile}/home.nix")
           ];
           extraSpecialArgs = {
