@@ -1,10 +1,14 @@
 { pkgs, global_utils, ... }:
 {
   home.packages = with pkgs; [
+    ffmpeg
+    losslesscut-bin
     # postman
     wpsoffice-cn
     zed-editor
+    localsend
     # gimp
+    spotify
   ] ++ [
     global_utils.pkgs-unstable.qq
     global_utils.pkgs-unstable.wemeet

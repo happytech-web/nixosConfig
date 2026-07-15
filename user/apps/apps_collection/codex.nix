@@ -2,31 +2,31 @@
 let
   jsonFormat = pkgs.formats.json { };
   opencodeSettings = {
-    model = "openai/gpt-5.4";
+    model = "zhipuai-coding-plan/glm-5.2";
     small_model = "zhipuai-coding-plan/glm-5";
     theme = "stylix";
     plugin = [ "opencode-pty" "oh-my-opencode" ];
     agent = {
       plan = {
-        model = "zhipuai-coding-plan/glm-5.1";
+        model = "zhipuai-coding-plan/glm-5.2";
       };
       build = {
-        model = "zhipuai-coding-plan/glm-5.1";
+        model = "zhipuai-coding-plan/glm-5.2";
       };
       general = {
-        model = "zhipuai-coding-plan/glm-5.1";
+        model = "zhipuai-coding-plan/glm-5.2";
       };
       explore = {
-        model = "zhipuai-coding-plan/glm-5.1";
+        model = "zhipuai-coding-plan/glm-5.2";
       };
       title = {
         model = "zhipuai-coding-plan/glm-5";
       };
       summary = {
-        model = "openai/gpt-5.4-mini";
+        model = "zhipuai-coding-plan/glm-5.2";
       };
       compaction = {
-        model = "openai/gpt-5.4-mini";
+        model = "zhipuai-coding-plan/glm-5.2";
       };
     };
   };
@@ -38,96 +38,96 @@ let
     agents = {
       # Prometheus/Sisyphus are Claude/GLM-style upstream roles, so use GLM here.
       prometheus = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       plan = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
 
-      # Keep GPT-backed roles on GPT; Claude/Gemini-like roles use GLM 5.1.
+      # Keep GPT-backed roles on GPT; Claude/Gemini-like roles use GLM 5.2.
       atlas = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       general = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       build = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       sisyphus = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       oracle = {
-        model = "openai/gpt-5.4";
-        fallback_models = [ "zhipuai-coding-plan/glm-5.1" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       librarian = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       explore = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       multimodal-looker = {
         model = "zhipuai-coding-plan/glm-5v-turbo";
-        fallback_models = [ "openai/gpt-5.4" ];
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       hephaestus = {
-        model = "openai/gpt-5.4";
-        fallback_models = [ "zhipuai-coding-plan/glm-5.1" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       title = {
         model = "zhipuai-coding-plan/glm-5";
-        fallback_models = [ "openai/gpt-5-nano" ];
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       summary = {
-        model = "openai/gpt-5.4-mini";
-        fallback_models = [ "zhipuai-coding-plan/glm-5.1" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       compaction = {
-        model = "openai/gpt-5.4-mini";
-        fallback_models = [ "zhipuai-coding-plan/glm-5.1" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
     };
     categories = {
       planning = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       visual-engineering = {
-        model = "zhipuai-coding-plan/glm-5v-turbo";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       ultrabrain = {
-        model = "openai/gpt-5.4";
-        fallback_models = [ "zhipuai-coding-plan/glm-5.1" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       deep = {
-        model = "openai/gpt-5.4";
-        fallback_models = [ "zhipuai-coding-plan/glm-5.1" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       quick = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5-nano" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       unspecified-low = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       unspecified-high = {
-        model = "openai/gpt-5.4";
-        fallback_models = [ "zhipuai-coding-plan/glm-5.1" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
       writing = {
-        model = "zhipuai-coding-plan/glm-5.1";
-        fallback_models = [ "openai/gpt-5.4" ];
+        model = "zhipuai-coding-plan/glm-5.2";
+        fallback_models = [ "zhipuai-coding-plan/glm-5.2" ];
       };
     };
     background_task = {
@@ -150,7 +150,7 @@ in
   ];
   programs.codex = {
     enable = true;
-    package = inputs.codex-nix.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = inputs.codex-cli-nix.packages.${pkgs.stdenv.hostPlatform.system}.default;
     settings = {
       mcp_servers = {
         # git = {

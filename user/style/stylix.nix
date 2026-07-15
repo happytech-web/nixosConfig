@@ -9,13 +9,13 @@
     base16-schemes
   ];
 
+  stylix.targets.gdu.enable = false;
   stylix.targets.tmux.enable = false;
   stylix.targets.waybar.enable = false;
   stylix.targets.emacs.enable = false;
   stylix.targets.alacritty.enable = false;
   stylix.targets.starship.enable = false;
   stylix.targets.neovim.enable = false;
-  stylix.targets.noctalia-shell.enable = false;
   stylix.targets.qutebrowser.enable = false;
 
 

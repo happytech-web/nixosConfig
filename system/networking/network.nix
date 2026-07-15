@@ -3,6 +3,13 @@
   networking = {
     hostName = system_settings.hostname;
     networkmanager.enable = true;
+    nameservers = [
+      # Avoid relying on Tailscale MagicDNS as the only system resolver.
+      "223.5.5.5"
+      "119.29.29.29"
+      "1.1.1.1"
+      "8.8.8.8"
+    ];
   };
 
   # install clash
@@ -43,6 +50,13 @@
 
   services.tailscale = {
     enable = true;
+    extraUpFlags = [
+      "--accept-dns=false"
+    ];
+  };
+
+  services.netbird = {
+    enable = true;
   };
 
   services.openssh = {
@@ -56,8 +70,14 @@
 
   networking.firewall = {
     enable = true;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedTCPPorts = [ 22 ];
+    trustedInterfaces = [ "tailscale0" "wt0" ];
+    allowedTCPPorts = [
+      22
+      53317
+    ];
+    allowedUDPPorts = [
+      53317
+    ];
   };
 
 }

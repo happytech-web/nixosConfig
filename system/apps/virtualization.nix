@@ -11,6 +11,7 @@
   virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";
+    package = pkgs.docker_29;
   };
   users.users."${user_settings.username}".extraGroups = [ "docker" ];
 

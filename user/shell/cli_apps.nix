@@ -50,6 +50,9 @@
     ffmpegthumbnailer # for video preview
     vips
     imv
+    mpv
+
+    gdu
   ];
 
 

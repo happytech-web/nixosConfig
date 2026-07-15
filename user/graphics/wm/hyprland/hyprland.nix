@@ -189,7 +189,7 @@ in
         "SUPER, Q, killactive" # 关闭窗口
         # "SUPER, D, exec, wofi --show run" # 启动应用
         # "SUPER, D, exec, uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)" # 启动应用
-        "SUPER, D, exec, uwsm app -- $(noctalia-shell ipc call launcher toggle)" # 启动应用
+        "SUPER, D, exec, uwsm app -- $(noctalia msg panel-toggle launcher)" # 启动应用
         "SUPER, A, exec, uwsm app -- emacsclient -c -a 'emacs'"
         "SUPER, S, exec, uwsm app -- ${spawn_firefox}"
         "SUPER, Tab, exec, pypr toggle term"
@@ -227,7 +227,7 @@ in
 
         # clipboard manager
         # "SUPER, V, exec,  cliphist list | wofi --dmenu | cliphist decode | wl-copy"
-        "SUPER, V, exec,  noctalia-shell ipc call launcher clipboard"
+        "SUPER, V, exec,  noctalia msg panel-toggle clipboard"
 
         # brightness
         ", xf86monbrightnessup, exec, brightnessctl set 10%+"

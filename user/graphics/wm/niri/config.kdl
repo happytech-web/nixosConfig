@@ -1,6 +1,11 @@
 spawn-at-startup "fcitx5"
+spawn-at-startup "noctalia"
 
 prefer-no-csd
+
+output "HDMI-A-1" {
+    scale 1.25
+}
 input {
   keyboard {
     xkb {
@@ -45,11 +50,11 @@ binds {
   Mod+S { spawn "firefox"; }
   // Core Noctalia binds
   Mod+D hotkey-overlay-title="Toggle Launcher" {
-    spawn-sh "noctalia-shell ipc call launcher toggle";
+    spawn-sh "noctalia msg panel-toggle launcher";
   }
 
   Mod+V hotkey-overlay-title="Toggle cliphist" {
-    spawn-sh "noctalia-shell ipc call launcher clipboard";
+    spawn-sh "noctalia msg panel-toggle clipboard";
   }
 
   Mod+J { focus-window-down-or-top; }
@@ -84,11 +89,11 @@ binds {
 
 
   // Audio & Brightness
-  XF86AudioRaiseVolume { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
-  XF86AudioLowerVolume { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-  XF86AudioMute { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
-  XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-  XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+  XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up"; }
+  XF86AudioLowerVolume { spawn "noctalia" "msg" "volume-down"; }
+  XF86AudioMute { spawn "noctalia" "msg" "volume-mute"; }
+  XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up"; }
+  XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down"; }
 
   Print { screenshot show-pointer=false; }
   Mod+Print { screenshot-window; }
@@ -97,6 +102,12 @@ binds {
   // Mod+O { toggle-window-rule-opacity; }
   Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
   Mod+O { toggle-overview; }
+
+  // Output (Monitor) switching
+  Mod+Comma { focus-monitor-left; }
+  Mod+Period { focus-monitor-right; }
+  Mod+Shift+Comma { move-column-to-monitor-left; }
+  Mod+Shift+Period { move-column-to-monitor-right; }
 
   Mod+Tab {
     spawn-sh "kitten quick-access-terminal --detach --instance-group scratch-term";
@@ -107,6 +118,13 @@ binds {
   }
 }
 
+
+blur {
+  passes 2
+  offset 2.0
+  noise 0.02
+  saturation 1.2
+}
 
 window-rule {
     match app-id=r#".*scratch.*"#
@@ -177,12 +195,31 @@ window-rule {
   clip-to-geometry true
 }
 
+window-rule {
+  background-effect {
+    blur true
+  }
+}
+
 debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial
 }
 
 layer-rule {
-  match namespace="^noctalia-overview*"
+  background-effect {
+    blur true
+  }
+}
+
+layer-rule {
+  match namespace="^noctalia.*"
+  background-effect {
+    blur false
+  }
+}
+
+layer-rule {
+  match namespace="^noctalia-overview.*"
   place-within-backdrop true
 }
